@@ -1,0 +1,21 @@
+#!/sbin/runscript
+# Distributed under the terms of the GNU General Public License v2
+
+description="Start and stop urserver"
+
+depend() {
+	need net
+}
+
+start() {
+	ebegin "Starting urserver"
+	start-stop-daemon --background --start --make-pidfile --pidfile /var/run/urserver.pid --exec /opt/urserver/urserver --daemon
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping urserver"
+	start-stop-daemon --stop --pidfile /var/run/urserver.pid
+	eend $?
+}
+
