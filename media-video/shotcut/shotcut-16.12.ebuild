@@ -35,6 +35,7 @@ DEPEND="
 	dev-qt/qtmultimedia:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtwebsockets:5
+	dev-qt/qtgraphicaleffects:5
 	=media-video/ffmpeg-2*
 	media-libs/x264
 	media-libs/libvpx
