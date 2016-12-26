@@ -20,7 +20,7 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 DEPEND="
-	media-libs/mlt[qt5,ffmpeg,frei0r,python]
+	media-libs/mlt[qt5,ffmpeg,frei0r,python,melt]
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtx11extras:5
@@ -40,7 +40,7 @@ DEPEND="
 	media-libs/x264
 	media-libs/libvpx
 	media-sound/lame
-	media-plugins/frei0r-plugins
+	>=media-plugins/frei0r-plugins-1.5.0
 	media-libs/ladspa-sdk
 	"
 
@@ -64,5 +64,8 @@ src_install() {
 	#Copy Translations
 	insinto /usr/share/shotcut
 	doins -r ${WORKDIR}/Shotcut/Shotcut.app/share/shotcut/translations
+
+	#Install warapper script for melt
+	dobin ${FILESDIR}/qmelt
 }
- 
+
