@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+	<mime-type type="application/front-panel-basket">
+		<comment>Front Panel basket</comment>
+		<comment xml:lang="de">Frontplatten Warenkorb</comment>
+		<comment xml:lang="fr">Faces Avant</comment>
+		<comment xml:lang="es">Carro de compra paneles frontales</comment>
+		<comment xml:lang="es_mx">Carrito de compras paneles frontales</comment>
+		<glob pattern="*.fpb"/>
+	</mime-type>
+</mime-info>
+
+

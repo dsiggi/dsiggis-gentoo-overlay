@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+	<mime-type type="application/front-panel">
+		<comment>Front Panel</comment>
+		<comment xml:lang="de">Frontplatte</comment>
+		<comment xml:lang="fr">Faces Avant</comment>
+		<comment xml:lang="es">Panel frontal</comment>
+		<comment xml:lang="es_mx">Panel frontal</comment>
+		<glob pattern="*.fpd"/>
+	</mime-type>
+</mime-info>
+

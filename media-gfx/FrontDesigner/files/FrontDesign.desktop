@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Front Panel Designer
+Name[de]=Frontplatten Designer
+Name[fr]=Designer de Faces Avant
+Name[es]=Diseñador de paneles frontales
+Name[es_mx]=Diseñador de paneles frontales
+Comment=Design and order Front Panels
+Comment[de]=Frontplatten entwerfen und bestellen
+Comment[fr]=Dessiner et commander des faces avant
+Comment[es]=Diseñador de paneles frontales
+Comment[es_mx]=Diseñador de paneles frontales
+Exec=/opt/FrontDesigner/bin/FrontDesign %F
+Terminal=false
+Type=Application
+MimeType=application/front-panel;
+Categories=Graphics;Engineering
+Icon=FrontDesign

@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Order Front Panels
+Name[de]=Frontplatten bestellen
+Name[fr]=Commander faces avant 
+Name[es]=Pedir paneles frontales
+Name[es_mx]=Pedir paneles frontales
+Comment=Order Front Panels and accessories
+Comment[de]=Frontplatten und Zubehör bestellen
+Comment[fr]=Commander faces avant et accessoires
+Comment[es]=Pedir paneles frontales y accesorios
+Comment[es_mx]=Pedir paneles frontales y accesorios
+Exec=/opt/FrontDesigner/bin/FrontDesign-Order %F
+Terminal=false
+Type=Application
+MimeType=application/front-panel-basket;
+Categories=Graphics;Engineering
+Icon=FrontDesign-Order
