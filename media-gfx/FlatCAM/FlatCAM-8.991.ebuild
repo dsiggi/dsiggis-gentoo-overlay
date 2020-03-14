@@ -37,8 +37,15 @@ DEPEND="dev-python/affine[${PYTHON_USEDEP}]
 	dev-python/pyopengl[${PYTHON_USEDEP}]
 	dev-python/dill[${PYTHON_USEDEP}]"
 
-src_unpack() {
-	die
+S=${WORKDIR}/${PN}_beta_${PV}_sources
+
+src_compile() {
+	elog "Nothing to do"
+}
+
+src_install() {
+	insinto /usr/share/${PN}
+	doins -r ${S}/*
 }
 
 
