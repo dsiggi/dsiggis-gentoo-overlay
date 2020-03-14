@@ -35,7 +35,8 @@ DEPEND="dev-python/affine[${PYTHON_USEDEP}]
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/fonttools[${PYTHON_USEDEP}]
 	dev-python/pyopengl[${PYTHON_USEDEP}]
-	dev-python/dill[${PYTHON_USEDEP}]"
+	dev-python/dill[${PYTHON_USEDEP}]
+	dev-python/attrs[${PYTHON_USEDEP}]"
 
 S=${WORKDIR}/${PN}_beta_${PV}_sources
 
