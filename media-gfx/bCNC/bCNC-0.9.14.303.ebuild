@@ -3,6 +3,7 @@
 
 EAPI=6
 PYTHON_COMPAT=( python3_6)
+PYTHON_REQ_USE="tk"
 
 inherit distutils-r1
 
@@ -15,7 +16,6 @@ IUSE="scipy +serial opencv"
 LICENSE="GPLv2"
 SLOT="0"
 
-RDEPEND="dev-lang/python[tk]"
 DEPEND="serial? ( dev-python/pyserial[${PYTHON_USEDEP}] )
 	dev-python/numpy[${PYTHON_USEDEP}]
 	scipy? ( sci-libs/scipy[${PYTHON_USEDEP}] )
@@ -24,6 +24,5 @@ DEPEND="serial? ( dev-python/pyserial[${PYTHON_USEDEP}] )
 
 python_prepare() {
 	sed -i -e "s/find_packages()/find_packages(exclude=['tests'])/" setup.py || die
+	sed -i -e '/opencv-python/d' setup.py
 }
-
-
