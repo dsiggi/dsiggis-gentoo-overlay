@@ -25,7 +25,8 @@ IUSE=""
 LICENSE="Apache-2.0"
 SLOT="0"
 
-DEPEND="dev-python/mypy-protobuf"
+DEPEND="dev-python/mypy-protobuf
+	dev-python/pip"
 
 S="${WORKDIR}/${PN%%-python}-${PV}"
 
