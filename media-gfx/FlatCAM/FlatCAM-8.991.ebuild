@@ -22,7 +22,7 @@ DEPEND="dev-python/affine[${PYTHON_USEDEP}]
 	dev-python/rasterio[${PYTHON_USEDEP}]
 	dev-python/svglib[${PYTHON_USEDEP}]
 	dev-python/vispy[${PYTHON_USEDEP}]
-	dev-python/PyQt5[${PYTHON_USEDEP}]
+	dev-python/PyQt5[${PYTHON_USEDEP},printsupport]
 	dev-python/qrcode[${PYTHON_USEDEP}]
 	dev-python/simplejson[${PYTHON_USEDEP}]
 	dev-python/cssselect2[${PYTHON_USEDEP}]
@@ -39,6 +39,7 @@ DEPEND="dev-python/affine[${PYTHON_USEDEP}]
 	dev-python/attrs[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
 	sci-libs/scipy[${PYTHON_USEDEP}]
+	dev-python/reportlab[${PYTHON_USEDEP}]
 	"
 
 S=${WORKDIR}/${PN}_beta_${PV}_sources
