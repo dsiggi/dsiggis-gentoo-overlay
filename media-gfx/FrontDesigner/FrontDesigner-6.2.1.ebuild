@@ -16,7 +16,7 @@ KEYWORDS="x86 amd64"
 
 
 RDEPEND="virtual/glu
-         media-libs/libpng:1.2"
+	media-libs/libpng"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/FrontDesign"
