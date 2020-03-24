@@ -36,12 +36,22 @@ DEPEND="dev-python/affine[${PYTHON_USEDEP}]
 	dev-python/fonttools[${PYTHON_USEDEP}]
 	dev-python/pyopengl[${PYTHON_USEDEP}]
 	dev-python/dill[${PYTHON_USEDEP}]
-	dev-python/attrs[${PYTHON_USEDEP}]"
+	dev-python/attrs[${PYTHON_USEDEP}]
+	dev-python/numpy[${PYTHON_USEDEP}]
+	sci-libs/scipy[${PYTHON_USEDEP}]
+	"
 
 S=${WORKDIR}/${PN}_beta_${PV}_sources
 
+#src_prepare() {
+#	cp ${FILESDIR}/setup.py ${S}
+#	sed -i "s/xxx/${PV}/g" ${S}/setup.py
+#	rm -r ${S}/share/dark_resources
+#	eapply_user
+#}
+
 src_compile() {
-	elog "Nothing to do"
+	elog ""
 }
 
 src_install() {
