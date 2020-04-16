@@ -19,8 +19,8 @@ RDEPEND="$(python_gen_cond_dep '>=dev-python/PyQt5-5.7[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/PyQt5-5.7[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/pyopengl-3.1[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/configobj-5.0.6[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep '>=app-text/poppler-0.45[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep '>=media-gfx/pstoedit-3.70[${PYTHON_USEDEP}]')"
+	>=app-text/poppler-0.45
+	>=media-gfx/pstoedit-3.70"
 
 python_prepare() {
 	python_foreach_impl ./make_tr.py || die
