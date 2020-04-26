@@ -115,5 +115,11 @@ src_compile() {
 
 src_install() {
 	python_foreach_impl run_in_build_dir emake install_python
-	python_foreach_impl run_in_build_dir /usr/bin/pip install --root=${D} --no-deps --ignore-installed --no-warn-script-location "$(find -name 'ortools*whl')"
+
+	pip() {
+		file=$(find ${BUILD_DIR} -name 'ortools-*.whl')
+		/usr/bin/pip install --root=${D} --no-deps --ignore-installed --no-warn-script-location ${file}
+	}
+	
+	python_foreach_impl run_in_build_dir pip
 }
