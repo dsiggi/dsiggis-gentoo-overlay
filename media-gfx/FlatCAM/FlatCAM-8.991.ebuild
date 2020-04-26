@@ -15,31 +15,31 @@ IUSE=""
 LICENSE="GPLv2"
 SLOT="0"
 
-DEPEND="dev-python/affine[${PYTHON_USEDEP}]
-	dev-python/ezdxf[${PYTHON_USEDEP}]
-	dev-python/freetype-py[${PYTHON_USEDEP}]
-	dev-python/or-tools-python[${PYTHON_USEDEP}]
-	dev-python/rasterio[${PYTHON_USEDEP}]
-	dev-python/svglib[${PYTHON_USEDEP}]
-	dev-python/vispy[${PYTHON_USEDEP}]
-	dev-python/PyQt5[${PYTHON_USEDEP},printsupport]
-	dev-python/qrcode[${PYTHON_USEDEP}]
-	dev-python/simplejson[${PYTHON_USEDEP}]
-	dev-python/cssselect2[${PYTHON_USEDEP}]
-	dev-python/svg-path[${PYTHON_USEDEP}]
-	dev-python/webencodings[${PYTHON_USEDEP}]
-	dev-python/tinycss2[${PYTHON_USEDEP}]
-	sci-libs/Shapely[${PYTHON_USEDEP}]
-	sci-libs/Rtree[${PYTHON_USEDEP}]
-	dev-python/matplotlib[${PYTHON_USEDEP}]
-	dev-python/click[${PYTHON_USEDEP}]
-	dev-python/fonttools[${PYTHON_USEDEP}]
-	dev-python/pyopengl[${PYTHON_USEDEP}]
-	dev-python/dill[${PYTHON_USEDEP}]
-	dev-python/attrs[${PYTHON_USEDEP}]
-	dev-python/numpy[${PYTHON_USEDEP}]
-	sci-libs/scipy[${PYTHON_USEDEP}]
-	dev-python/reportlab[${PYTHON_USEDEP}]
+DEPEND="$(python_gen_cond_dep 'dev-python/affine[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/ezdxf[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/freetype-py[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/or-tools-python[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/rasterio[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/svglib[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/vispy[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/PyQt5[${PYTHON_USEDEP},printsupport]')
+	$(python_gen_cond_dep 'dev-python/qrcode[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/simplejson[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/cssselect2[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/svg-path[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/webencodings[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/tinycss2[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'sci-libs/Shapely[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'sci-libs/Rtree[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/matplotlib[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/click[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/fonttools[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/pyopengl[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/dill[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/attrs[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/numpy[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'sci-libs/scipy[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/reportlab[${PYTHON_USEDEP}]')
 	"
 
 S=${WORKDIR}/${PN}_beta_${PV}_sources
