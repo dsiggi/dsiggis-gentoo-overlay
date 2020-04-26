@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python3_6)
+PYTHON_COMPAT=( python3_{6,7} )
 PYTHON_REQ_USE="tk"
 
-inherit distutils-r1 eutils fdo-mime
+inherit python-single-r1 eutils fdo-mime xdg-utils
 
 DESCRIPTION="Swiss army knife for all your CNC/g-code needs"
 HOMEPAGE="https://pypi.org/project/bcnc/ https://github.com/vlachoudis/bCNC"
@@ -16,11 +16,11 @@ IUSE="scipy +serial opencv"
 LICENSE="GPLv2"
 SLOT="0"
 
-DEPEND="dev-python/pyserial[${PYTHON_USEDEP}]
-	dev-python/numpy[${PYTHON_USEDEP}]
-	scipy? ( sci-libs/scipy[${PYTHON_USEDEP}] )
-	opencv? ( media-libs/opencv[${PYTHON_USEDEP},python] )
-	dev-python/pillow[${PYTHON_USEDEP}]"
+DEPEND="$(python_gen_cond_dep 'dev-python/pyserial[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/numpy[${PYTHON_USEDEP}]')
+	scipy? ( $(python_gen_cond_dep 'sci-libs/scipy[${PYTHON_USEDEP}]') )
+	opencv? ( $(python_gen_cond_dep 'media-libs/opencv[${PYTHON_USEDEP},python]') )
+	$(python_gen_cond_dep 'dev-python/pillow[${PYTHON_USEDEP}]')"
 
 python_prepare() {
 	sed -i -e "s/find_packages()/find_packages(exclude=['tests'])/" setup.py || die
