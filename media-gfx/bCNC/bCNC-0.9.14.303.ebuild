@@ -5,7 +5,7 @@ EAPI=6
 PYTHON_COMPAT=( python3_{6,7} )
 PYTHON_REQ_USE="tk"
 
-inherit python-single-r1 eutils fdo-mime xdg-utils
+inherit distutils-r1 eutils fdo-mime xdg-utils
 
 DESCRIPTION="Swiss army knife for all your CNC/g-code needs"
 HOMEPAGE="https://pypi.org/project/bcnc/ https://github.com/vlachoudis/bCNC"
