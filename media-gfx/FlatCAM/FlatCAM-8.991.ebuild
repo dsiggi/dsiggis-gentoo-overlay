@@ -4,7 +4,7 @@
 EAPI=6
 PYTHON_COMPAT=( python3_{6,7} )
 
-inherit python-single-r1 eutils fdo-mime xdg-utils
+inherit distutils-r1 eutils fdo-mime xdg-utils
 
 DESCRIPTION="Generates CNC gcode from 2D PCB files (Gerber/Excellon/SVG)"
 HOMEPAGE="http://flatcam.org"
