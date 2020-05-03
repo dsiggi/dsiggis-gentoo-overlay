@@ -59,6 +59,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "This version of RemoteBox requires VirtualBox 6.1.x running on the server"
+	elog "This version of RemoteBox requires VirtualBox 6.0.x running on the server"
 	elog "For details, refer to http://remotebox.knobgoblin.org.uk/documentation.cgi"
 }
