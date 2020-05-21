@@ -25,6 +25,8 @@ DEPEND="$(python_gen_cond_dep 'dev-python/pyserial[${PYTHON_USEDEP}]')
 python_prepare() {
 	sed -i -e "s/find_packages()/find_packages(exclude=['tests'])/" setup.py || die
 	sed -i -e '/opencv-python/d' setup.py || die
+
+	epatch ${FILESDIR}/box.patch
 }
 
 python_install_all() {
