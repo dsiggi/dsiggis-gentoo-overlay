@@ -1,0 +1,15 @@
+#!/sbin/openrc-run
+
+start()
+{
+	ebegin "Starting xow"
+	start-stop-daemon --background --start --make-pidfile --pidfile /var/run/xow.pid --exec /usr/bin/xow
+	eend $?
+}
+
+stop()
+{
+	ebegin "Stopping xow"
+	start-stop-daemon --stop --pidfile /var/run/xow.pid
+	eend $?
+}
