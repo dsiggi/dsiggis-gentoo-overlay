@@ -14,7 +14,8 @@ SLOT="0"
 LICENSE="GPL-2 Microsoft"
 KEYWORDS="~x86 ~amd64"
 
-IUSE="systemd openrc"
+IUSE="systemd openrc -debug"
+QA_EXECSTACK="usr/bin/xow"
 
 BDEPEND="app-arch/cabextract"
 
@@ -34,8 +35,11 @@ src_prepare()
 
 
 src_compile()
-{
-	emake BUILD=RELEASE
+{	if use debug; then
+		emake BUILD=DEBUG
+	else
+		emake BUILD=RELEASE
+	fi
 }
 
 src_install()
