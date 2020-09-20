@@ -38,7 +38,7 @@ DEPEND="$(python_gen_cond_dep 'dev-python/affine[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/dill[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/attrs[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/numpy[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep 'sci-libs/scipy[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/scipy[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/reportlab[${PYTHON_USEDEP}]')
 	"
 
