@@ -18,7 +18,7 @@ SLOT="0"
 
 DEPEND="$(python_gen_cond_dep 'dev-python/pyserial[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/numpy[${PYTHON_USEDEP}]')
-	scipy? ( $(python_gen_cond_dep 'sci-libs/scipy[${PYTHON_USEDEP}]') )
+	scipy? ( $(python_gen_cond_dep 'dev-python/scipy[${PYTHON_USEDEP}]') )
 	opencv? ( $(python_gen_cond_dep 'media-libs/opencv[${PYTHON_USEDEP},python]') )
 	$(python_gen_cond_dep 'dev-python/pillow[${PYTHON_USEDEP}]')"
 
