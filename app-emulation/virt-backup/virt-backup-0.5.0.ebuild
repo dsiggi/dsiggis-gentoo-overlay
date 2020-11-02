@@ -26,10 +26,3 @@ src_prepare() {
 	eapply_user
 	python_copy_sources
 }
-
-src_install () {
-	python_foreach_impl run_in_build_dir default
-
-	mkdir -p ${D}/etc/virt-backup
-	cp example/config.yml ${D}/etc/virt-backup/
-}
