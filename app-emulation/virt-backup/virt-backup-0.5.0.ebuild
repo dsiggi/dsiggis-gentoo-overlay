@@ -16,6 +16,8 @@ IUSE="zstd"
 DEPEND="$(python_gen_cond_dep 'dev-python/appdirs[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/defusedxml[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/libvirt-python[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/pyyaml[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/arrow[${PYTHON_USEDEP}]')
 	zstd? ( $(python_gen_cond_dep 'dev-python/zstandard[${PYTHON_USEDEP}]') )"
 
 LICENSE="BSD"
@@ -23,6 +25,8 @@ SLOT="0"
 
 src_prepare() {
 	sed -i -e "s/'pytest-runner', //" setup.py || die
+	sed -i -e "s/\"argparse\", //" setup.py || die
+	sed -i -e "s/\"packaging\", //" setup.py || die
 	eapply_user
 	python_copy_sources
 }
