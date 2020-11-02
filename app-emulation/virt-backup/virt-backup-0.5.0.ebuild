@@ -1,0 +1,35 @@
+# Copyright 1999-2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=6
+PYTHON_COMPAT=( python3_{6,7,8} )
+
+DISTUTILS_USE_SETUPTOOLS=rdepend
+inherit distutils-r1
+
+DESCRIPTION="Do external backup of your KVM guests, managed by libvirt, using the BlockCommit feature."
+HOMEPAGE="https://github.com/aruhier/virt-backup"
+SRC_URI="https://github.com/aruhier/${PN}/archive/v${PV}.tar.gz"
+KEYWORDS="~amd64 ~x86"
+IUSE="zstd"
+
+DEPEND="$(python_gen_cond_dep 'dev-python/appdirs[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-ptyhon/defusedxml[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/libvirt-python[${PYTHON_USEDEP}]')
+	zstd? ( $(python_gen_cond_dep 'dev-python/zstandard[${PYTHON_USEDEP}]') )"
+
+LICENSE="BSD"
+SLOT="0"
+
+src_prepare() {
+	sed -i -e "s/'pytest-runner', //" setup.py || die
+	eapply_user
+	python_copy_sources
+}
+
+src_install () {
+	python_foreach_impl run_in_build_dir default
+
+	mkdir -p ${D}/etc/virt-backup
+	cp example/config.yml ${D}/etc/virt-backup/
+}
