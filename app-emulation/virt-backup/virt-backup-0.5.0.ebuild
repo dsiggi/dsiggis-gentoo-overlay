@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="zstd"
 
 DEPEND="$(python_gen_cond_dep 'dev-python/appdirs[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep 'dev-ptyhon/defusedxml[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/defusedxml[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/libvirt-python[${PYTHON_USEDEP}]')
 	zstd? ( $(python_gen_cond_dep 'dev-python/zstandard[${PYTHON_USEDEP}]') )"
 
