@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -12,7 +12,7 @@ SRC_URI="https://www.unifiedremote.com/static/builds/server/linux-x64/${PV##*.}/
 
 SLOT="0"
 LICENSE="urserver"
-KEYWORDS="-* amd64"
+KEYWORDS="-* x86"
 
 IUSE="systemd"
 
