@@ -30,7 +30,8 @@ DEPEND="${RDEPEND}
 	dev-util/intltool
 	gnome-base/gnome-common
 	sys-devel/gettext
-	virtual/pkgconfig"
+	virtual/pkgconfig
+	gnome-base/gnome-menus"
 DOCS=( AUTHORS COPYRIGHT )
 
 src_prepare() {
