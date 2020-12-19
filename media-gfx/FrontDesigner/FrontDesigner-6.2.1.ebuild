@@ -4,7 +4,7 @@
 
 EAPI="6"
 
-inherit eutils fdo-mime xdg-utils
+inherit eutils xdg-utils
 
 DESCRIPTION="Der Frontplatten Designer ist ein kostenfreies Programm, mit dem Sie mühelos und passgenau die verschiedensten Frontplatten, Gehäuse und Fräßteile entwerfen können"
 HOMEPAGE="https://www.schaeffer-ag.de/"
@@ -55,11 +55,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	fdo-mime_mime_database_update
 	xdg_desktop_database_update
 }
 
 pkg_postrm() {
-	fdo-mime_mime_database_update
 	xdg_desktop_database_update
 }
