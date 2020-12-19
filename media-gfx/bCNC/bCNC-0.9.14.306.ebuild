@@ -5,7 +5,7 @@ EAPI=6
 PYTHON_COMPAT=( python3_{6,7} )
 PYTHON_REQ_USE="tk"
 
-inherit distutils-r1 eutils fdo-mime xdg-utils
+inherit distutils-r1 eutils xdg-utils
 
 DESCRIPTION="Swiss army knife for all your CNC/g-code needs"
 HOMEPAGE="https://pypi.org/project/bcnc/ https://github.com/vlachoudis/bCNC"
@@ -36,13 +36,11 @@ python_install_all() {
 }
 
 pkg_postinst() {
-	fdo-mime_mime_database_update
 	xdg_desktop_database_update
 	xdg_icon_cache_update
 }
 
 pkg_postrm() {
-	fdo-mime_mime_database_update
 	xdg_desktop_database_update
 	xdg_icon_cache_update
 }

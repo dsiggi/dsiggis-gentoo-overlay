@@ -5,7 +5,7 @@ EAPI=6
 PYTHON_COMPAT=( python3_{6,7} )
 DISTUTILS_USE_SETUPTOOLS=bdepend
 
-inherit distutils-r1 eutils fdo-mime xdg-utils
+inherit distutils-r1 eutils xdg-utils
 
 DESCRIPTION="2D drawings to CNC machine compatible G-Code converter"
 HOMEPAGE="https://sourceforge.net/projects/dxf2gcode/"
@@ -29,13 +29,11 @@ python_prepare() {
 }
 
 pkg_postinst() {
-	fdo-mime_mime_database_update
 	xdg_desktop_database_update
 	xdg_icon_cache_update
 }
 
 pkg_postrm() {
-	fdo-mime_mime_database_update
 	xdg_desktop_database_update
 	xdg_icon_cache_update
 }
