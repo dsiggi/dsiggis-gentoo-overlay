@@ -10,14 +10,23 @@ DESCRIPTION="MicroPython Project Management Tool"
 HOMEPAGE="https://github.com/BradenM/micropy-cli"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
-LICENSE=""
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="$(python_gen_cond_dep 'dev-python/colorama[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/rshell[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep 'dev-python/click[${PYTHON_USEDEP}]')"
+	$(python_gen_cond_dep 'dev-python/click[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/requirements-parser[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/tqdm[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/questionary[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/jsonschema[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep '<dev-python/dpath-2[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/cachier[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep '<dev-python/boltons-20[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/GitPython[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/prompt_toolkit[${PYTHON_USEDEP}]')"
 
 RDEPEND="${DEPEND}"
 BDEPEND=""
