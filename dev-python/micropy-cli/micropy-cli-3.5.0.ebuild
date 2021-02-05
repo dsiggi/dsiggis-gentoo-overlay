@@ -30,3 +30,12 @@ DEPEND="$(python_gen_cond_dep 'dev-python/colorama[${PYTHON_USEDEP}]')
 
 RDEPEND="${DEPEND}"
 BDEPEND=""
+
+function postinst() {
+	cp ${S}/micropy/project/template/.gitignore ${D}/usr/lib/${EPYTHON}/site-packages/micropy/project/template/
+	cp ${S}/micropy/project/template/.pylintrc ${D}/usr/lib/${EPYTHON}/site-packages/micropy/project/template/
+}
+
+pkg_postinst() {
+	python_foreach_impl postinst
+}
