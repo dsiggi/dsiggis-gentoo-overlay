@@ -2,8 +2,8 @@
 Description=Xbox One Wireless Dongle Driver
 
 [Service]
-Type=idle
 ExecStart=/usr/bin/xow
+DynamicUser=true
 Restart=on-success
 
 # Uncomment the following line to enable compatibility mode

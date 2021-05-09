@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="6"
-inherit eutils systemd
+inherit eutils systemd udev
 
 DESCRIPTION="Linux driver for the Xbox One wireless dongle"
 HOMEPAGE="https://medusalix.github.io/xow/"
@@ -48,6 +48,8 @@ src_install()
 	
 	if use systemd; then
 		systemd_dounit ${FILESDIR}/xow.service
+		udev_dorules ${FILESDIR}/xow.rules
+		udev_reload
 	fi
 
 	if use openrc; then
