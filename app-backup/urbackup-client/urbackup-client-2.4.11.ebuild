@@ -74,6 +74,12 @@ src_install() {
 		systemd_dounit "${FILESDIR}"/urbackup-client.service
 	fi
 
+	exeinto /usr/share/urbackup
+	for f in btrfs dattobd lvm; do
+		doexe ${FILESDIR}/${f}_create_filesystem_snapshot
+		doexe ${FILESDIR}/${f}_remove_filesystem_snapshot
+	done
+	
 	insinto /etc/urbackup
 	doins "${FILESDIR}"/urbackup-client
 }
