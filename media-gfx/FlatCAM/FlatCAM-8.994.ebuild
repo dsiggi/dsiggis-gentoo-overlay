@@ -1,8 +1,8 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{8,9} )
 
 inherit distutils-r1 eutils xdg-utils
 
@@ -34,7 +34,7 @@ DEPEND="$(python_gen_cond_dep '>=dev-python/PyQt5-5.12.1[${PYTHON_USEDEP},prints
 	$(python_gen_cond_dep 'dev-python/fonttools[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/rasterio[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/lxml[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep 'dev-python/ezdxf[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep '<=dev-python/ezdxf-0.14.2[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/qrcode-6.1[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/reportlab-3.5[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/svglib[${PYTHON_USEDEP}]')
