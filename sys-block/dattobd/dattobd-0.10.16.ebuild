@@ -24,6 +24,7 @@ inherit linux-info linux-mod
 
 pkg_setup() {
 	linux-mod_pkg_setup
+	BUILD_PARAMS="KERNELDIR=${KV_DIR}"
 }
 
 src_prepare() {
