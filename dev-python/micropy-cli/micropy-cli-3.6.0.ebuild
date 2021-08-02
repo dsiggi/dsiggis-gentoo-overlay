@@ -17,7 +17,7 @@ IUSE=""
 
 DEPEND="$(python_gen_cond_dep 'dev-python/colorama[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/rshell[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep 'dev-python/click[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep '=dev-python/click-7*[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/requirements-parser[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/tqdm[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/questionary[${PYTHON_USEDEP}]')
@@ -26,7 +26,9 @@ DEPEND="$(python_gen_cond_dep 'dev-python/colorama[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/cachier[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '<dev-python/boltons-20[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/GitPython[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep 'dev-python/prompt_toolkit[${PYTHON_USEDEP}]')"
+	$(python_gen_cond_dep 'dev-python/prompt_toolkit[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep '=dev-python/jinja-2*[${PYTHON_USEDEP}]')
+"
 
 RDEPEND="${DEPEND}"
 BDEPEND=""
@@ -36,6 +38,6 @@ function postinst() {
 	cp ${S}/micropy/project/template/.pylintrc ${D}/usr/lib/${EPYTHON}/site-packages/micropy/project/template/
 }
 
-pkg_postinst() {
+pkg_preinst() {
 	python_foreach_impl postinst
 }
