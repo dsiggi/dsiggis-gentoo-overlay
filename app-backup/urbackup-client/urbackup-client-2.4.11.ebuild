@@ -4,7 +4,7 @@
 
 EAPI=7
 WX_GTK_VER=3.0
-inherit autotools l10n readme.gentoo-r1 systemd user wxwidgets
+inherit autotools plocale readme.gentoo-r1 systemd user wxwidgets
 
 PLOCALES="cs da de es fa fr it nl pl pt_BR ru sk uk zh_CN zh_TW"
 
@@ -43,7 +43,7 @@ src_prepare() {
 		sed -i -e "/\/urbackup\/lang\/${1}/d" \
 			Makefile.am || die "sed failed to remove locale"
 	}
-	l10n_for_each_disabled_locale_do remove_locale
+	plocale_for_each_disabled_locale_do remove_locale
 
 	eautoreconf
 }
