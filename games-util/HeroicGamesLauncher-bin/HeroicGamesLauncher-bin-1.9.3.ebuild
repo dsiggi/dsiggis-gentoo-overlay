@@ -35,7 +35,7 @@ src_install() {
 	doexe ${FILESDIR}/heroic
 
 	newicon -s 512 ${S}/resources/app.asar.unpacked/build/icon.png ${MY_PN}.png
-	make_desktop_entry /usr/bin/heroic ${MY_PN} /usr/share/icons/hicolor/512x512/apps/${PN}.png Games
+	make_desktop_entry /usr/bin/heroic ${MY_PN} /usr/share/icons/hicolor/512x512/apps/${MY_PN}.png Game
 }
 
 pkg_postinst() {
