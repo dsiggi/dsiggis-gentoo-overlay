@@ -1,10 +1,10 @@
-# Copyright 1999-2020 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
-PYTHON_COMPAT=( python3_{6,7} )
-inherit eutils python-r1 fdo-mime
+PYTHON_COMPAT=( python3_{8,9,10} )
+inherit eutils python-r1 xdg-utils
 
 PKG_POST_NAME="-fix_release"
 
@@ -57,12 +57,11 @@ src_install(){
 }
 
 pkg_postinst() {
-	fdo-mime_mime_database_update
-	fdo-mime_desktop_database_update
+	xdg_desktop_database_update
+	xdg_icon_cache_update
 }
 
 pkg_postrm() {
-	fdo-mime_mime_database_update
-	fdo-mime_desktop_database_update
-}
- 
+	xdg_desktop_database_update
+	xdg_icon_cache_update
+} 
