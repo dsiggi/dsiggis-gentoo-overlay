@@ -28,6 +28,8 @@ DEPEND="$(python_gen_cond_dep 'dev-python/colorama[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/GitPython[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/prompt_toolkit[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '=dev-python/jinja-2*[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep '<dev-python/packaging-21[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/typing-extensions[${PYTHON_USEDEP}]')
 "
 
 RDEPEND="${DEPEND}"
