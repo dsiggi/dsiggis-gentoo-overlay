@@ -43,6 +43,7 @@ DEPEND="$(python_gen_cond_dep '>=dev-python/PyQt5-5.12.1[${PYTHON_USEDEP},prints
 	$(python_gen_cond_dep 'dev-python/cssselect2[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/click[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/affine[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/attrs[${PYTHON_USEDEP}]')
 "
 
 S=${WORKDIR}/${PN}_beta_${PV}_sources
