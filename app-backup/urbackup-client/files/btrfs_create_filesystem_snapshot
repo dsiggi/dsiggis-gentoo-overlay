@@ -8,7 +8,7 @@ SNAP_ID=$1
 SNAP_MOUNTPOINT="$2"
 SNAP_NAME="$3"
 SNAP_ORIG_PATH="$4"
-SNAP_DEST=/mnt/urbackup_snaps/$SNAP_ID
+SNAP_DEST=$SNAP_MOUNTPOINT/$SNAP_ID
 
 TYPE=$(df -T -P | egrep " ${SNAP_MOUNTPOINT}\$" | head -n 1 | tr -s " " | cut -d" " -f2)
 
