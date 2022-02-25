@@ -1,0 +1,205 @@
+diff -urN lxdui-2.1.3.orig/app/api/controllers/container.py lxdui-2.1.3/app/api/controllers/container.py
+--- lxdui-2.1.3.orig/app/api/controllers/container.py	2021-04-04 15:49:18.309222859 +0200
++++ lxdui-2.1.3/app/api/controllers/container.py	2021-04-04 15:50:55.786225257 +0200
+@@ -1,5 +1,5 @@
+ from flask import Blueprint, request
+-from flask_jwt import jwt_required
++from flask_jwt_extended import jwt_required
+ from app.api.schemas.container_schema import doValidate, doValidateCloneMove, doValidateImageExport
+ 
+ from app.api.models.LXCContainer import LXCContainer
+@@ -222,4 +222,4 @@
+         container = LXCContainer({'name': name})
+         return response.replySuccess(container.removeProxy(proxy))
+     except ValueError as e:
+-        return response.replyFailed(message=e.__str__())
+\ No newline at end of file
++        return response.replyFailed(message=e.__str__())
+diff -urN lxdui-2.1.3.orig/app/api/controllers/fileManager.py lxdui-2.1.3/app/api/controllers/fileManager.py
+--- lxdui-2.1.3.orig/app/api/controllers/fileManager.py	2021-04-04 15:49:18.309222859 +0200
++++ lxdui-2.1.3/app/api/controllers/fileManager.py	2021-04-04 15:50:55.786225257 +0200
+@@ -1,6 +1,6 @@
+ from flask import Blueprint, request, send_file
+ from flask import jsonify
+-from flask_jwt import jwt_required
++from flask_jwt_extended import jwt_required
+ 
+ from app.api.models.LXCFileManager import LXCFileManager
+ from app.api.utils import response
+diff -urN lxdui-2.1.3.orig/app/api/controllers/image.py lxdui-2.1.3/app/api/controllers/image.py
+--- lxdui-2.1.3.orig/app/api/controllers/image.py	2021-04-04 15:49:18.309222859 +0200
++++ lxdui-2.1.3/app/api/controllers/image.py	2021-04-04 15:50:55.786225257 +0200
+@@ -1,5 +1,5 @@
+ from flask import Blueprint, request, jsonify
+-from flask_jwt import jwt_required
++from flask_jwt_extended import jwt_required
+ 
+ from app.api.models.LXCImage import LXCImage
+ from app.api.models.LXDModule import LXDModule
+@@ -84,4 +84,4 @@
+         client = LXDModule()
+         return response.replySuccess(client.downloadImage(input.get('image')), message='Image {} downloaded successfully.'.format(input.get('image')))
+     except ValueError as e:
+-        return response.replyFailed(message=e.__str__())
+\ No newline at end of file
++        return response.replyFailed(message=e.__str__())
+diff -urN lxdui-2.1.3.orig/app/api/controllers/lxd.py lxdui-2.1.3/app/api/controllers/lxd.py
+--- lxdui-2.1.3.orig/app/api/controllers/lxd.py	2021-04-04 15:49:18.309222859 +0200
++++ lxdui-2.1.3/app/api/controllers/lxd.py	2021-04-04 15:50:55.786225257 +0200
+@@ -1,5 +1,5 @@
+ from flask import Blueprint, jsonify
+-from flask_jwt import jwt_required
++from flask_jwt_extended import jwt_required
+ 
+ from app.api.models.LXDModule import LXDModule
+ from app.api.utils import response
+@@ -33,4 +33,4 @@
+         client = LXDModule()
+         return response.replySuccess(client.config())
+     except ValueError as e:
+-        return response.replyFailed(message=e.__str__())
+\ No newline at end of file
++        return response.replyFailed(message=e.__str__())
+diff -urN lxdui-2.1.3.orig/app/api/controllers/network.py lxdui-2.1.3/app/api/controllers/network.py
+--- lxdui-2.1.3.orig/app/api/controllers/network.py	2021-04-04 15:49:18.309222859 +0200
++++ lxdui-2.1.3/app/api/controllers/network.py	2021-04-04 15:50:55.786225257 +0200
+@@ -1,5 +1,5 @@
+ from flask import Blueprint, request
+-from flask_jwt import jwt_required
++from flask_jwt_extended import jwt_required
+ 
+ from app.api.models.LXDModule import LXDModule
+ from app.api.models.LXCContainer import LXCContainer
+@@ -68,4 +68,4 @@
+     network.deleteNetwork()
+ 
+     client = LXDModule()
+-    return response.replySuccess(client.listNetworks(), message='Network {} deleted successfully.'.format(name))
+\ No newline at end of file
++    return response.replySuccess(client.listNetworks(), message='Network {} deleted successfully.'.format(name))
+diff -urN lxdui-2.1.3.orig/app/api/controllers/profile.py lxdui-2.1.3/app/api/controllers/profile.py
+--- lxdui-2.1.3.orig/app/api/controllers/profile.py	2021-04-04 15:49:18.309222859 +0200
++++ lxdui-2.1.3/app/api/controllers/profile.py	2021-04-04 15:50:55.786225257 +0200
+@@ -1,6 +1,6 @@
+ from flask import Blueprint, request
+ from flask import jsonify
+-from flask_jwt import jwt_required
++from flask_jwt_extended import jwt_required
+ 
+ from app.api.models.LXDModule import LXDModule
+ from app.api.models.LXCProfile import LXCProfile
+diff -urN lxdui-2.1.3.orig/app/api/controllers/snapshot.py lxdui-2.1.3/app/api/controllers/snapshot.py
+--- lxdui-2.1.3.orig/app/api/controllers/snapshot.py	2021-04-04 15:49:18.309222859 +0200
++++ lxdui-2.1.3/app/api/controllers/snapshot.py	2021-04-04 15:50:55.786225257 +0200
+@@ -1,5 +1,5 @@
+ from flask import Blueprint, request
+-from flask_jwt import jwt_required
++from flask_jwt_extended import jwt_required
+ from app.api.schemas.container_schema import doValidateCloneMove
+ 
+ from app.api.models.LXCSnapshot import LXCSnapshot
+diff -urN lxdui-2.1.3.orig/app/api/controllers/storagePool.py lxdui-2.1.3/app/api/controllers/storagePool.py
+--- lxdui-2.1.3.orig/app/api/controllers/storagePool.py	2021-04-04 15:49:18.309222859 +0200
++++ lxdui-2.1.3/app/api/controllers/storagePool.py	2021-04-04 15:50:55.786225257 +0200
+@@ -1,6 +1,6 @@
+ from flask import Blueprint, request
+ from flask import jsonify
+-from flask_jwt import jwt_required
++from flask_jwt_extended import jwt_required
+ 
+ from app.api.models.LXDModule import LXDModule
+ from app.api.models.LXCStoragePool import LXCStoragePool
+diff -urN lxdui-2.1.3.orig/app/api/utils/authentication.py lxdui-2.1.3/app/api/utils/authentication.py
+--- lxdui-2.1.3.orig/app/api/utils/authentication.py	2021-04-04 15:49:18.309222859 +0200
++++ lxdui-2.1.3/app/api/utils/authentication.py	2021-04-04 15:54:01.048229815 +0200
+@@ -3,7 +3,7 @@
+ from app.lib.auth import User
+ from app.lib.conf import Config
+ from datetime import timedelta
+-from flask_jwt import JWT
++from flask_jwt_extended import JWTManager
+ from app.api.utils import converters
+ import app.__metadata__ as meta
+ import logging
+@@ -35,7 +35,7 @@
+     app.config['SECRET_KEY'] = secretKey
+     app.config['JWT_AUTH_URL_RULE'] = authUrlRule
+     app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=tokenExpiration)
+-    JWT(app, authenticate, identity)
++    JWTManager(app)
+ 
+ def jwt_decode_handler(token):
+     try:
+diff -urN lxdui-2.1.3.orig/requirements.txt lxdui-2.1.3/requirements.txt
+--- lxdui-2.1.3.orig/requirements.txt	2021-04-04 15:49:18.311222859 +0200
++++ lxdui-2.1.3/requirements.txt	2021-04-04 15:50:55.786225257 +0200
+@@ -1,15 +1,15 @@
+-Click==6.7
+-Flask==1.0
+-flask-login==0.4.1
+-flask_jwt==0.3.2
+-jsonschema==2.6.0
+-requests==2.20.0
+-netaddr==0.7.19
+-pyopenssl==17.5.0
+-psutil==5.6.6
+-pylxd==2.2.7
+-terminado==0.8.1
+-tornado==5.0.2
++Click>=6.7
++Flask>=1.0
++flask-login>=0.4.1
++flask_jwt_extended>=4.1.0
++jsonschema>=2.6.0
++requests>=2.20.0
++netaddr>=0.7.19
++pyopenssl>=17.5.0
++psutil>=5.6.6
++pylxd>=2.2.7
++terminado>=0.8.1
++tornado>=5.0.2
+ tornado-xstatic
+-XStatic==1.0.1
+-XStatic-term.js==0.0.7.0
++XStatic>=1.0.1
++XStatic-term.js>=0.0.7.0
+diff -urN lxdui-2.1.3.orig/setup.py lxdui-2.1.3/setup.py
+--- lxdui-2.1.3.orig/setup.py	2021-04-04 15:49:18.311222859 +0200
++++ lxdui-2.1.3/setup.py	2021-04-04 15:50:55.786225257 +0200
+@@ -28,21 +28,21 @@
+    include_package_data=True,
+    zip_safe=False,
+    install_requires=[
+-       'Click==6.7',
+-       'Flask==1.0',
+-       'flask-login==0.4.1',
+-       'flask_jwt==0.3.2',
+-       'jsonschema==2.6.0',
+-       'requests==2.20.0',
+-       'netaddr==0.7.19',
+-       'pyopenssl==17.5.0',
+-       'psutil==5.6.6',
+-       'pylxd==2.2.7',
+-       'terminado==0.8.1',
+-       'tornado==5.0.2',
++       'Click>=6.7',
++       'Flask>=1.0',
++       'flask-login>=0.4.1',
++       'flask_jwt_extended>=4.1.0',
++       'jsonschema>=2.6.0',
++       'requests>=2.20.0',
++       'netaddr>=0.7.19',
++       'pyopenssl>=17.5.0',
++       'psutil>=5.6.6',
++       'pylxd>=2.2.7',
++       'terminado>=0.8.1',
++       'tornado>=5.0.2',
+        'tornado-xstatic',
+-       'XStatic==1.0.1',
+-       'XStatic-term.js==0.0.7.0'
++       'XStatic>=1.0.1',
++       'XStatic-term.js>=0.0.7.0'
+    ],
+    entry_points={
+        'console_scripts': [
+
