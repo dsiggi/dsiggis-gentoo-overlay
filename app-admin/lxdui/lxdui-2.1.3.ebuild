@@ -36,7 +36,8 @@ BDEPEND="dev-python/virtualenv"
 
 RDEPEND="app-containers/lxd ${DEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-requirements.patch )
+PATCHES=( "${FILESDIR}"/${P}-requirements.patch 
+	  "${FILESDIR}"/lxdui-path.patch )
 
 python_install_all() {
 	dodir /etc/lxdui
