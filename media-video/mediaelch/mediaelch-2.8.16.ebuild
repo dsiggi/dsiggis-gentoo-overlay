@@ -5,13 +5,13 @@
 EAPI=7
 inherit qmake-utils eutils desktop xdg-utils
 
-QUAZIP_GIT_COMMIT=3825e99e2b55a047e81c1c4bcccb23d91a0b87d9
+QUAZIP_VERSION="1.1"
 MY_PN=MediaElch
 S=$WORKDIR/$MY_PN-$PV
 
 DESCRIPTION="Video metadata scraper"
 SRC_URI="https://github.com/Komet/$MY_PN/archive/v${PV}.tar.gz -> $P.tar.gz
- 	https://github.com/stachenov/quazip/archive/${QUAZIP_GIT_COMMIT}.tar.gz -> quazip-${QUAZIP_GIT_COMMIT}.tar.gz"
+	https://github.com/stachenov/quazip/archive/refs/tags/v${QUAZIP_VERSION}.tar.gz -> quazip-${QUAZIP_VERSION}.tar.gz"
 HOMEPAGE="http://www.mediaelch.de/"
 SLOT="0"
 LICENSE="GPL-3"
@@ -32,10 +32,10 @@ DEPEND="dev-qt/qtsql:5
 src_unpack()
 {
 	unpack $P.tar.gz
-	unpack quazip-${QUAZIP_GIT_COMMIT}.tar.gz
+	unpack quazip-${QUAZIP_VERSION}.tar.gz
 	cd $S/third_party
 	rmdir quazip
-	mv $WORKDIR/quazip-${QUAZIP_GIT_COMMIT} quazip
+	mv $WORKDIR/quazip-${QUAZIP_VERSION} quazip
 }
 
 src_configure()
