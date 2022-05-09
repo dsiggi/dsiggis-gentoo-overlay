@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Foundation
+# Copyright 1999-2022 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,10 +16,10 @@ S=${WORKDIR}/${P}.0
 SLOT="0"
 LICENSE="AGPL-3"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug hardened nls systemd X"
+IUSE="debug hardened nls systemd X system-cryptopp"
 
 RDEPEND="dev-db/sqlite:3
-	dev-libs/crypto++:0=
+	system-cryptopp? ( dev-libs/crypto++:0= )
 	dev-libs/icu:0=
 	sys-libs/zlib:0=
 	X? ( x11-libs/wxGTK:3.0 )"
@@ -52,6 +52,7 @@ src_configure() {
 	econf "$(usex hardened --enable-fortify "")" \
 		"$(use_enable debug assertions)" \
 		"$(use_enable !X headless)" \
+		"$(use_enable !system-cryptopp embedded-cryptopp)" \
 		--without-embedded-sqlite3 \
 		--disable-clientupdate \
 		--enable-embedded-zstd
