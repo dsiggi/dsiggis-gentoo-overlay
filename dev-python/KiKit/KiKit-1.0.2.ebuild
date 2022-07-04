@@ -13,7 +13,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=">=dev-python/numpy-1.12
-	>=sci-libs/shapely-1.7
+	>=dev-python/shapely-1.7
 	>=dev-python/click-7.1
 	>=dev-python/markdown2-2.4
 	>=dev-python/commentjson-0.9
