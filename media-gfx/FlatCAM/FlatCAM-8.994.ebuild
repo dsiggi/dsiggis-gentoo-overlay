@@ -29,7 +29,7 @@ DEPEND="$(python_gen_cond_dep '>=dev-python/PyQt5-5.12.1[${PYTHON_USEDEP},prints
 	$(python_gen_cond_dep '>=dev-python/or-tools-python-7.0[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/svg-path-4.0[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/simplejson[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep '>=sci-libs/shapely-1.7[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep '>=dev-python/shapely-1.7[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/freetype-py[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/fonttools[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/rasterio[${PYTHON_USEDEP}]')
