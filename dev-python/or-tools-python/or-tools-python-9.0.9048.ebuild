@@ -93,6 +93,9 @@ src_prepare() {
 		#Add decleartion of ${DEPTREE} to the makefile
 		zeile=$(expr $(grep -n "Tags of dep" ${MAKEFILE} | cut -d":" -f1) - 1)
 		sed -i "${zeile}iDEPTREE := ${DEPTREE}" ${MAKEFILE}
+		zeile=$(grep -n "DEPTREE" ${MAKEFILE} | cut -d":" -f1 | head -n1)
+		sed -i "${zeile}iFILESDIR := ${FILESDIR}" ${MAKEFILE}
+
 
 		#Alle git-Befehle zu mv-Befehlen ändern
 		sed -i 's?.*-b releases/$(CBC_TAG).*?\tmv ${DEPTREE}/Cbc-${CBC_TAG} ${DEPTREE}/../?' ${MAKEFILE} || die
@@ -108,6 +111,10 @@ src_prepare() {
 
 		#Nicht benötigte git-Befehle entfernen
 		sed -i 's?cd dependencies/sources/abseil-cpp-$(ABSL_TAG) && git reset --hard $(ABSL_TAG)??' ${MAKEFILE} || die
+
+		#Patch für abseil hinzufügen
+		zeile=$(expr $(grep -n 'cd dependencies/sources/abseil-cpp-$(ABSL_TAG) && git apply "$(OR_TOOLS_TOP)/patches/abseil-cpp-$(ABSL_TAG).patch"' ${MAKEFILE} | cut -d":" -f1) - 1)
+		sed -i "${zeile}i\\\tpatch -p1 < ${FILESDIR}/abseil-cpp-20210324.1-glibc-2.34.patch" ${MAKEFILE} || die
 
 		#Disable Scip
 		if use !scip; then
