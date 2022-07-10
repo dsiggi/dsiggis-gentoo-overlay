@@ -5,7 +5,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_{9,10} )
 PYTHON_REQ_USE="tk"
 
-inherit distutils-r1 eutils desktop
+inherit distutils-r1 eutils desktop xdg-utils
 
 DESCRIPTION="Swiss army knife for all your CNC/g-code needs"
 HOMEPAGE="https://pypi.org/project/bcnc/ https://github.com/vlachoudis/bCNC"
@@ -32,7 +32,7 @@ python_prepare() {
 python_install_all() {
 	default
 	doicon -s 128 "${FILESDIR}"/${PN}.png
-	make_desktop_entry /usr/bin/${PN} ${PN} /usr/share/icons/hicolor/128x128/apps/${PN}.png Graphics
+	make_desktop_entry /usr/bin/${PN} ${PN} /usr/share/icons/hicolor/128x128/apps/${PN}.png Utility
 }
 
 pkg_postinst() {
