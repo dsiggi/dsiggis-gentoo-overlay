@@ -25,7 +25,7 @@ DEPEND="$(python_gen_cond_dep '>=dev-python/PyQt5-5.12.1[${PYTHON_USEDEP},prints
 	$(python_gen_cond_dep 'dev-python/dill[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'sci-libs/rtree[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/pyopengl[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep 'dev-python/vispy[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep '=dev-python/vispy-0.6.6[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/or-tools-python-7.0[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/svg-path-4.0[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/simplejson[${PYTHON_USEDEP}]')
