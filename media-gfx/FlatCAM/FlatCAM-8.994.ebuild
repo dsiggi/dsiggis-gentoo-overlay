@@ -4,7 +4,7 @@
 EAPI=7
 PYTHON_COMPAT=( python3_{9,10} )
 
-inherit distutils-r1 eutils xdg-utils
+inherit distutils-r1 eutils desktop
 
 DESCRIPTION="Generates CNC gcode from 2D PCB files (Gerber/Excellon/SVG)"
 HOMEPAGE="http://flatcam.org"

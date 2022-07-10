@@ -5,7 +5,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_{9,10} )
 PYTHON_REQ_USE="tk"
 
-inherit distutils-r1 eutils xdg-utils
+inherit distutils-r1 eutils desktop
 
 DESCRIPTION="Swiss army knife for all your CNC/g-code needs"
 HOMEPAGE="https://pypi.org/project/bcnc/ https://github.com/vlachoudis/bCNC"
