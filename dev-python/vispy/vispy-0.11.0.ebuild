@@ -13,7 +13,8 @@ KEYWORDS="~amd64 ~x86 ~arm"
 IUSE=""
 
 DEPEND="dev-python/wheel[${PYTHON_USEDEP}]
-	dev-python/setuptools_scm_git_archive[${PYTHON_USEDEP}]"
+	dev-python/setuptools_scm_git_archive[${PYTHON_USEDEP}]
+	dev-python/hsluv[${PYTHON_USEDEP}]"
 RDEPEND="dev-python/PyQt5[${PYTHON_USEDEP},testlib]"
 
 LICENSE="BSD"
