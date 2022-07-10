@@ -4,7 +4,7 @@
 EAPI=7
 PYTHON_COMPAT=( python3_{9,10} )
 
-inherit distutils-r1 eutils desktop
+inherit distutils-r1 eutils desktop xdg-utils
 
 DESCRIPTION="Generates CNC gcode from 2D PCB files (Gerber/Excellon/SVG)"
 HOMEPAGE="http://flatcam.org"
@@ -64,7 +64,7 @@ src_install() {
 	doexe ${FILESDIR}/${PN}
 
 	doicon -s 128 "${FILESDIR}"/${PN}.png
-	make_desktop_entry /usr/bin/${PN} ${PN} /usr/share/icons/hicolor/128x128/apps/${PN}.png Graphics
+	make_desktop_entry /usr/bin/${PN} ${PN} /usr/share/icons/hicolor/128x128/apps/${PN}.png Electronics
 }
 
 pkg_postinst() {

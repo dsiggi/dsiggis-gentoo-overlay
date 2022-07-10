@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Foundation
+# Copyright 1999-2022 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -34,8 +34,7 @@ src_install()
 	doexe Candle
 
 	newicon images/candle_256.png Candle.png
-	make_desktop_entry /opt/bin/Candle Candle Candle.png Graphics
-	
+	make_desktop_entry /opt/bin/Candle Candle Candle.png Electronics
 }
 
 pkg_postinst()
