@@ -49,8 +49,11 @@ DEPEND="$(python_gen_cond_dep '>=dev-python/PyQt5-5.12.1[${PYTHON_USEDEP},prints
 S=${WORKDIR}/${PN}_beta_${PV}_sources
 
 src_compile() {
-	#Nichts zu tun hier
-	echo ""
+	# Patchen einiger Dateien
+	sed -i "s/import collections/import collections.abc as collections/" ${S}/appCommon/Common.py || die
+	sed -i "s/from collections import Iterable/from collections.abc import Iterable/" ${S}/camlib.py || die
+	sed -i "s/from collections import Iterable/from collections.abc import Iterable/" ${S}/appTools/ToolQRCode.py  || die
+	sed -i "s/from collections import Iterable/from collections.abc import Iterable/" ${S}/appTools/ToolCopperThieving.py  || die
 }
 
 src_install() {
