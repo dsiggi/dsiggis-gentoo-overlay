@@ -8,8 +8,8 @@ inherit eutils xdg-utils desktop
 
 DESCRIPTION="Der Frontplatten Designer ist ein kostenfreies Programm, mit dem Sie mühelos und passgenau die verschiedensten Frontplatten, Gehäuse und Fräßteile entwerfen können"
 HOMEPAGE="https://www.schaeffer-ag.de/"
-SRC_URI="amd64? ( https://assets.schaeffer-ag.de/fpd/Version-${PV}/FrontDesign-EU-${PV}-amd64.AppImage )
-	 x86? ( https://assets.schaeffer-ag.de/fpd/Version-${PV}/FrontDesign-EU-${PV}-i386.AppImage )"
+SRC_URI="amd64? ( https://assets.schaeffer-ag.de/fpd/Version-${PV}/FrontDesign-EU-${PV}-amd64.deb )
+	 x86? ( https://assets.schaeffer-ag.de/fpd/Version-${PV}/FrontDesign-EU-${PV}-i386.deb )"
 LICENSE="FrontDesigner"
 SLOT="0"
 KEYWORDS="x86 amd64"
@@ -19,50 +19,33 @@ RDEPEND="virtual/glu
 	media-libs/libpng"
 DEPEND="${RDEPEND}"
 
-src_unpack(){
-	cp ${DISTDIR}/${A} ${WORKDIR}/
-	cd ${WORKDIR}
-	chmod +x ${A}
-	./${A} --appimage-extract || die
-	mv squashfs-root ${P}
+S=${PORTAGE_BUILDDIR}/work
+
+src_unpack() {
+	unpack ${A}
+        cd ${PORTAGE_BUILDDIR}/work
+        tar -xpf data.tar.xz
 }
 
 src_install() {
-	#Install the package to /opt/FrontDesigner
-	dodir /opt/${PN}
-	cd "${S}/usr"
-	cp -R . "${D}/opt/${PN}/" || die "Install failed"
-
-	#Install the binarys
-	bins="FrontDesign FrontDesign-Order"
-	for b in $bins; do
-		chmod +x "${D}"/opt/${PN}/bin/$b
-	done
-
-	for f in $(ls ${D}/opt/${PN}/lib/); do
-		chmod -x ${D}/opt/${PN}/lib/$f
-	done
+	cp -R "${S}/opt" "${D}/"
 	
-	remove="applications doc pixmaps icons"
-	for r in $remove; do
-		rm -rf ${D}/opt/${PN}/share/$r
-	done
+	dodir /usr/
+	cp -R "${S}/usr/local" "${D}/usr"
 
-	rm -rf ${D}/opt/${PN}/local
-
-	#Install the icons
-	doicon -s 48 "${FILESDIR}"/icons/* || die "Failed to install icons"
+	#Install the iconsq
+	doicon -s 48 "${S}"/usr/share/icons/hicolor/48x48/mimetypes/* || die "Failed to install icons"
 
 	#Install a menuentry
-	domenu "${FILESDIR}"/*.desktop || die "Failed to install menuentrys"
+	domenu "${S}"/usr/share/applications/* || die "Failed to install menuentrys"
 
 	#Install mime-types
 	insinto /usr/share/mime/packages
-	doins "${FILESDIR}"/mime/*.xml || die "Failed to install mime-types"
+	doins "${S}"/usr/share/mime/packages/*.xml || die "Failed to install mime-types"
 
 	#Install pixmaps
 	insinto /usr/share/pixmaps
-	doins "${FILESDIR}"/pixmaps/*.png || die "Failed to install pixmaps"
+	doins "${S}"/usr/share/pixmaps/* || die "Failed to install pixmaps"
 }
 
 pkg_postinst() {
