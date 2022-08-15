@@ -4,7 +4,6 @@ Description=Start/Stop the urserver
 [Service]
 Type=oneshot
 User=root
-KillMode=none
 RemainAfterExit=yes
 ExecStart=/opt/urserver/urserver --daemon
 ExecStop=/usr/bin/pkill -9 urserver
