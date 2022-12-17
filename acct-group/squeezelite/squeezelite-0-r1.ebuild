@@ -5,4 +5,6 @@ EAPI=8
 
 inherit acct-group
 
+DESCRIPTION="Group for media-sound/squeezelite"
+
 ACCT_GROUP_ID=-1
