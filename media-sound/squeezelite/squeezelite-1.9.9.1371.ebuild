@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit eutils user flag-o-matic
+inherit eutils flag-o-matic
 
 DESCRIPTION="Lightweight headless squeezebox client emulator"
 HOMEPAGE="https://github.com/ralph-irving/squeezelite"
@@ -29,7 +29,9 @@ DEPEND="media-libs/alsa-lib
 	lirc? ( app-misc/lirc )
 "
 RDEPEND="${DEPEND}
-		 media-sound/alsa-utils"
+	media-sound/alsa-utils
+	pulseaudio? ( acct-group/squeezelite acct-user/squeezelite )
+	"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-gentoo-optional-codecs.patch"
@@ -37,15 +39,6 @@ PATCHES=(
 )
 
 S=${WORKDIR}/${PN}-${COMMIT}
-
-pkg_setup() {
-	enewgroup squeezelite
-	if use pulseaudio ; then
-		enewuser squeezelite -1 -1 "/dev/null" "squeezelite"
-	else
-		enewuser squeezelite -1 -1 "/dev/null" "squeezelite,audio"
-	fi
-}
 
 # The squeezelite Makefile now enables (some) functionality based on the
 # content of the OPTS variable
