@@ -4,7 +4,7 @@
 
 EAPI=7
 WX_GTK_VER=3.0
-inherit autotools plocale readme.gentoo-r1 systemd user wxwidgets
+inherit autotools plocale readme.gentoo-r1 systemd wxwidgets
 
 PLOCALES="cs da de es fa fr it nl pl pt_BR ru sk uk zh_CN zh_TW"
 
