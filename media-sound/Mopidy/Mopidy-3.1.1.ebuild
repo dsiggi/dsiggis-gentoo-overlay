@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=6
-PYTHON_COMPAT=(python3_{7,8,9})
+EAPI=7
+PYTHON_COMPAT=(python3_{9,10})
 
-inherit eutils distutils-r1
+inherit distutils-r1
 
 DESCRIPTION="An extensible music server that plays music from local disk and more"
 HOMEPAGE="http://mopidy.com https://github.com/mopidy/mopidy"

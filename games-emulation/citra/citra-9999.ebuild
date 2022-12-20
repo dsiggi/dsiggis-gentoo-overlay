@@ -1,9 +1,9 @@
 # Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit cmake-utils git-r3 flag-o-matic
+inherit cmake git-r3 flag-o-matic
 
 DESCRIPTION="Nintendo 3DS Emulator"
 HOMEPAGE="https://citra-emu.org/"
@@ -80,18 +80,18 @@ src_configure() {
 		-DENABLE_FFMPEG_VIDEO_DUMPER="$(usex ffmpeg)"
 		-DUSE_DISCORD_PRESENCE="$(usex discord)"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_compile() {
-	cmake-utils_src_compile
+	cmake_src_compile
 	if use doc; then
 		doxygen || die
 	fi
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 	dodoc README.md CONTRIBUTING.md
 	use doc && dodoc -r doc-build/html
 }

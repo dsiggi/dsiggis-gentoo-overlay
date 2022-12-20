@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=6
+EAPI=7
 COMMIT="32427600aa4325beda385678897133a8218c1371"
 DESCRIPTION="Kernel module and userland tools for taking block-level snapshots and backups."
 HOMEPAGE="https://github.com/elastio/elastio-snap"

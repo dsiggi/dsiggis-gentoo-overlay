@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="Kernel module and userland tools for taking block-level snapshots and backups."
 HOMEPAGE="http://www.datto.com"

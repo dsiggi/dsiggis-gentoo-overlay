@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=6
+EAPI=7
 PYTHON_COMPAT=( python3_{8,9,10} )
-inherit eutils xdg-utils distutils-r1
+inherit xdg-utils distutils-r1
 
 PKG_POST_NAME=""
 

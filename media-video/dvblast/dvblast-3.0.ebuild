@@ -2,9 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="6"
-
-inherit eutils
+EAPI=7
 
 DESCRIPTION="DVBlast is a simple and powerful MPEG-2/TS demux and streaming
 application with several input methods."

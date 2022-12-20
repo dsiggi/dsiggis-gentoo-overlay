@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="6"
-inherit eutils systemd udev
+EAPI=8
+inherit systemd udev
 
 DESCRIPTION="Linux driver for the Xbox One wireless dongle"
 HOMEPAGE="https://medusalix.github.io/xow/"

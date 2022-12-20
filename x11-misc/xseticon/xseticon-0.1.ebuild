@@ -1,7 +1,7 @@
 # Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="Set the X11 window icon for any given window to that of a given image file"
 HOMEPAGE="http://leonerd.org.uk/code/xseticon"
