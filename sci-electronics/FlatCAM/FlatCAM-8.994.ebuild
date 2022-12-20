@@ -3,6 +3,7 @@
 
 EAPI=7
 PYTHON_COMPAT=( python3_{9,10} )
+DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1 eutils desktop xdg-utils
 
@@ -32,13 +33,13 @@ DEPEND="$(python_gen_cond_dep '>=dev-python/PyQt5-5.12.1[${PYTHON_USEDEP},prints
 	$(python_gen_cond_dep '>=dev-python/shapely-1.7[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/freetype-py[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/fonttools[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep 'dev-python/rasterio[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/rasterio[${PYTHON_SINGLE_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/lxml[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '<=dev-python/ezdxf-0.14.2[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/qrcode-6.1[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/reportlab-3.5[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/svglib[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep 'sci-libs/gdal[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'sci-libs/gdal[${PYTHON_SINGLE_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/pyserial-3.4[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/cssselect2[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/click[${PYTHON_USEDEP}]')
