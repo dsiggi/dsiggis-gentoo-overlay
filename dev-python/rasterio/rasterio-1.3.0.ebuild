@@ -14,7 +14,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 KEYWORDS="~amd64 ~x86 ~arm"
 IUSE="plot s3"
 
-DEPEND="<sci-libs/gdal-3.5[${PYTHON_USEDEP},python]
+DEPEND="<sci-libs/gdal-3.5.0[${PYTHON_USEDEP},python]
 	dev-python/numpy[${PYTHON_USEDEP}]"
 RDEPEND="dev-python/affine[${PYTHON_USEDEP}]
 	 dev-python/attrs[${PYTHON_USEDEP}]
