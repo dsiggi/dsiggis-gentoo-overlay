@@ -80,6 +80,10 @@ src_compile() {
 	if use lirc; then
 		append_opt "-DIR" "IR support"
 	fi
+	
+	if use pulseaudio; then
+		append_opt "-DPULSEAUDIO" "pulseaudio support"
+	fi
 
 	# Yet more build options we currently don't expose as USE flags:
 	# NO_FAAD
