@@ -1,11 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{9,10} )
+EAPI=8
+PYTHON_COMPAT=( python3_{10,11} )
 DISTUTILS_SINGLE_IMPL=1
 
-inherit distutils-r1 eutils desktop xdg-utils
+inherit distutils-r1 desktop xdg-utils
 
 DESCRIPTION="Generates CNC gcode from 2D PCB files (Gerber/Excellon/SVG)"
 HOMEPAGE="http://flatcam.org"
