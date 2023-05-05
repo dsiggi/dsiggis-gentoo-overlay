@@ -7,7 +7,7 @@ EAPI=8
 DESCRIPTION="dkms module of Linux i915 driver with SR-IOV support"
 HOMEPAGE="https://github.com/strongtz/i915-sriov-dkms"
 
-COMMIT="2e91f9a71f1e36e8461a0255828bd551778356af"
+COMMIT="60beac6a99c24cc52d3101b6f854fb3bb3d8d1be"
 SRC_URI="https://github.com/strongtz/${PN}/archive/${COMMIT}.zip -> ${P}.zip"
          
 LICENSE="GPL-3.0"
