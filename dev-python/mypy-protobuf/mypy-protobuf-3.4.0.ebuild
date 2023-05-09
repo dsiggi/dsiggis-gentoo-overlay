@@ -4,7 +4,7 @@
 EAPI=8
 PYTHON_COMPAT=( python3_{10,11} )
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="Generate mypy stub files from protobuf specs"
