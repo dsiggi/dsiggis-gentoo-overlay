@@ -4,18 +4,6 @@
 EAPI=8
 PYTHON_COMPAT=( python3_{10,11} )
 
-V_gflags=2.2.2
-V_glog=0.4.0
-V_protobuf=v3.15.8
-V_abseil=20210324.1
-V_patchelf=0.10
-V_Cbc=2.10.5
-V_Cgl=0.60.3
-V_Clp=1.17.4
-V_Osi=0.108.6
-V_CoinUtils=2.11.4
-V_Scip=7.0.1
-
 inherit python-r1 multibuild cmake
 
 DESCRIPTION="Google OR-Tools python libraries and modules"
@@ -43,6 +31,7 @@ DEPEND="$(python_gen_cond_dep 'dev-python/mypy-protobuf[${PYTHON_USEDEP}]')
 	>=dev-cpp/abseil-cpp-20230125.2
 	coinor? ( sci-libs/coinor-cbc )
 	glpk? ( sci-mathematics/glpk )
+	dev-libs/re2
 	"
 
 S="${WORKDIR}/${PN%%-python}-${PV}"
