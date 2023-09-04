@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=7
-inherit qmake-utils eutils desktop xdg-utils
+inherit qmake-utils desktop xdg-utils
 
 QUAZIP_VERSION="1.1"
 MY_PN=MediaElch
