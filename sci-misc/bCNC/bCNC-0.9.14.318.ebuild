@@ -22,6 +22,8 @@ DEPEND="$(python_gen_cond_dep 'dev-python/pyserial[${PYTHON_USEDEP}]')
 	opencv? ( $(python_gen_cond_dep 'media-libs/opencv[${PYTHON_USEDEP},python]') )
 	$(python_gen_cond_dep 'dev-python/pillow[${PYTHON_USEDEP}]')"
 
+S=${WORKDIR}/${S}
+
 python_prepare() {
 	sed -i -e "s/find_packages()/find_packages(exclude=['tests'])/" setup.py || die
 	sed -i -e '/opencv-python/d' setup.py || die

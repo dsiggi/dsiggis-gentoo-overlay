@@ -25,6 +25,8 @@ DEPEND="$(python_gen_cond_dep 'dev-python/pyserial[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/svgelements[${PYTHON_USEDEP}]')
 	"
 
+S=${WORKDIR}/${P}
+
 python_prepare() {
 	rm -rf tests/
 }
