@@ -6,11 +6,11 @@ PYTHON_COMPAT=( python3_{10,11} )
 PYTHON_REQ_USE="tk"
 DISTUTILS_SINGLE_IMPL=1
 
-inherit distutils-r1 desktop xdg-utils
+inherit distutils-r1 desktop xdg-utils pypi
 
 DESCRIPTION="Swiss army knife for all your CNC/g-code needs"
 HOMEPAGE="https://pypi.org/project/bcnc/ https://github.com/vlachoudis/bCNC"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="$(pypi_sdist_url --no-normalize "${PN}" "${PV}")"
 KEYWORDS="~amd64 ~x86"
 IUSE="scipy +serial opencv"
 
