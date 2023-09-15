@@ -3,13 +3,14 @@
 
 EAPI=8
 PYTHON_COMPAT=( python3_{10,11} )
-
 DISTUTILS_USE_SETUPTOOLS=rdepend
-inherit distutils-r1
+PYPI_NO_NORMALIZE=1
+
+inherit distutils-r1 pypi
 
 DESCRIPTION="Generate mypy stub files from protobuf specs"
 HOMEPAGE="https://pypi.org/project/mypy-protobuf/ https://github.com/dropbox/mypy-protobuf"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="$(pypi_sdist_url --no-normalize "${PN}" "${PV}")"
 KEYWORDS="~amd64 ~x86 ~arm"
 IUSE=""
 
