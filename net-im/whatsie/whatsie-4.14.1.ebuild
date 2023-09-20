@@ -19,8 +19,8 @@ S="${WORKDIR}/${P}/src"
 
 DEPEND="x11-libs/libX11 
 	x11-libs/libxcb
-	dev-qt/qtwebengine[widgets]
-	dev-qt/qtpositioning"
+	dev-qt/qtwebengine:5[widgets]
+	dev-qt/qtpositioning:5"
 	
 src_configure()
 {
