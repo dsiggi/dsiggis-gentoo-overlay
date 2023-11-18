@@ -1,0 +1,11 @@
+--- a/setup.py	2023-11-18 10:20:34.251635861 +0100
++++ b/setup.py	2023-11-18 10:21:05.011627688 +0100
+@@ -93,7 +93,7 @@
+     provides=['vispy'],
+     python_requires='>=3.6',
+     install_requires=['numpy', 'freetype-py', 'hsluv', 'kiwisolver'],
+-    setup_requires=['numpy', 'cython', 'setuptools_scm', 'setuptools_scm_git_archive'],
++    setup_requires=['numpy', 'cython', 'setuptools_scm'],
+     extras_require={
+         'ipython-static': ['ipython'],
+         'pyglet': ['pyglet>=1.2'],

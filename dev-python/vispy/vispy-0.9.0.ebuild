@@ -12,9 +12,13 @@ SRC_URI="$(pypi_sdist_url "${PN^}" "${PV}")"
 KEYWORDS="~amd64 ~x86 ~arm"
 IUSE=""
 
-DEPEND="dev-python/wheel[${PYTHON_USEDEP}]
-	dev-python/setuptools_scm_git_archive[${PYTHON_USEDEP}]"
+DEPEND="dev-python/wheel[${PYTHON_USEDEP}]"
 RDEPEND="dev-python/PyQt5[${PYTHON_USEDEP},testlib]"
 
 LICENSE="BSD"
 SLOT="0"
+
+src_prepare() {
+	default
+	eapply ${FILESDIR}/setuptools_scm_git_archive.patch
+}
