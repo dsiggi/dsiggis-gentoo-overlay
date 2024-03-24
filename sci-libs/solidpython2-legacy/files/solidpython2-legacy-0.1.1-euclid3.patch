@@ -1,0 +1,89 @@
+--- a/solid2_legacy/patch_euclid.py	2023-01-12 17:48:26.000000000 -0800
++++ b/solid2_legacy/patch_euclid.py	2023-03-14 09:34:19.357195817 -0700
+@@ -1,5 +1,5 @@
+-import euclid3
+-from euclid3 import Vector3, Vector2, Line3
++import euclid
++from euclid import Vector3, Vector2, Line3
+ 
+ # NOTE: The PyEuclid on PyPi doesn't include several elements added to
+ # the module as of 13 Feb 2013.  Add them here until euclid supports them
+--- a/solid2_legacy/extrude_along_path.py	2023-01-12 17:48:26.000000000 -0800
++++ b/solid2_legacy/extrude_along_path.py	2023-03-14 09:40:55.538674010 -0700
+@@ -4,7 +4,7 @@
+ from solid2 import polyhedron
+ from .types import Points, Indexes, ScadSize
+ from .utils import euclidify, euc_to_arr, transform_to_point, centroid
+-from euclid3 import Point2, Point3, Vector2, Vector3
++from euclid import Point2, Point3, Vector2, Vector3
+ 
+ from typing import Dict, Optional, Sequence, Tuple, Union, List, Callable
+ 
+--- a/solid2_legacy/examples/legacy/koch.py	2023-01-12 17:48:26.000000000 -0800
++++ b/solid2_legacy/examples/legacy/koch.py	2023-03-14 09:40:56.845669000 -0700
+@@ -2,7 +2,7 @@
+ 
+ from pathlib import Path
+ 
+-from euclid3 import LineSegment2, LineSegment3, Point2, Point3
++from euclid import LineSegment2, LineSegment3, Point2, Point3
+ 
+ from solid2 import scad_render_to_file, polygon, polyhedron, union, forward, up
+ 
+--- a/solid2_legacy/examples/legacy/path_extrude_example.py	2023-01-12 17:48:26.000000000 -0800
++++ b/solid2_legacy/examples/legacy/path_extrude_example.py	2023-03-14 09:40:56.430670592 -0700
+@@ -3,7 +3,7 @@
+ import sys
+ from math import cos, radians, sin, pi, tau
+ from pathlib import Path
+-from euclid3 import Point2, Point3, Vector3
++from euclid import Point2, Point3, Vector3
+ from typing import Set, Sequence, List, Callable, Optional, Union, Iterable, Tuple
+ 
+ from solid2 import linear_extrude
+--- a/solid2_legacy/examples/legacy/splines_example.py	2023-01-12 17:48:26.000000000 -0800
++++ b/solid2_legacy/examples/legacy/splines_example.py	2023-03-14 09:40:55.989672284 -0700
+@@ -2,7 +2,7 @@
+ 
+ import os
+ import sys
+-from euclid3 import Vector2, Vector3, Point2, Point3
++from euclid import Vector2, Vector3, Point2, Point3
+ 
+ from solid2 import *
+ from solid2_legacy.utils import Red, right, forward, back
+--- a/solid2_legacy/screw_thread.py	2023-01-12 17:48:26.000000000 -0800
++++ b/solid2_legacy/screw_thread.py	2023-03-14 09:40:55.093675720 -0700
+@@ -2,7 +2,7 @@
+ import math
+ from typing import Sequence, Tuple, Union
+ 
+-from euclid3 import Point3, Vector3
++from euclid import Point3, Vector3
+ 
+ from solid2 import scad_render_to_file
+ from solid2 import cylinder, polyhedron, render
+--- a/solid2_legacy/splines.py	2023-01-12 17:48:26.000000000 -0800
++++ b/solid2_legacy/splines.py	2023-03-14 09:40:57.436666734 -0700
+@@ -4,7 +4,7 @@
+ from solid2.core.object_base import OpenSCADObject
+ from solid2 import union, circle, cylinder, polygon, color, translate, linear_extrude, polyhedron
+ from .utils import bounding_box, right, Red, Tuple3, euclidify
+-from euclid3 import Vector2, Vector3, Point2, Point3
++from euclid import Vector2, Vector3, Point2, Point3
+ 
+ from typing import Sequence, Tuple, Union, List, cast
+ 
+--- a/solid2_legacy/utils.py	2023-01-12 17:48:26.000000000 -0800
++++ b/solid2_legacy/utils.py	2023-03-14 09:40:54.616677548 -0700
+@@ -11,8 +11,8 @@
+ from .types import OpenSCADObject, P2, P3, P4, Vec3 , Vec4, Vec34, P3s, P23,\
+                    Points, Indexes, ScadSize
+ 
+-from euclid3 import Point2, Point3, Vector2, Vector3, Line2, Line3
+-from euclid3 import LineSegment2, LineSegment3, Matrix4
++from euclid import Point2, Point3, Vector2, Vector3, Line2, Line3
++from euclid import LineSegment2, LineSegment3, Matrix4
+ 
+ run_euclid_patch()
+ 
