@@ -16,3 +16,5 @@ LICENSE="MIT"
 SLOT="0"
 
 DEPEND="$(python_gen_cond_dep 'dev-python/versioneer[${PYTHON_USEDEP}]')"
+
+S=${WORKDIR}/${P}
