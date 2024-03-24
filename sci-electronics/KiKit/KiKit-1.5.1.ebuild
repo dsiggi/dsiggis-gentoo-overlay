@@ -13,15 +13,18 @@ SRC_URI="$(pypi_sdist_url --no-normalize "${PN}" "${PV}")"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=dev-python/numpy-1.12
-	>=dev-python/shapely-1.7
-	>=dev-python/click-7.1
-	>=dev-python/markdown2-2.4
-	>=dev-python/commentjson-0.9
-	=dev-python/pcbnewTransition-0.2.0
-	>=dev-python/pybars3-0.9
-	>=dev-python/solidpython-1.1.2
-	$(python_gen_cond_dep 'sci-electronics/kicad[${PYTHON_USEDEP}]')"
+RDEPEND="(
+		>=sci-electronics/pcbnewTransition-0.3.4-r1
+		>=dev-python/shapely-1.7
+		>=dev-python/click-7.1
+		>=dev-python/markdown2-2.4
+		>=dev-python/pybars3-0.9
+		sci-libs/solidpython2-legacy
+		!sci-libs/solidpython
+		>=dev-python/commentjson-0.9
+		media-gfx/openscad
+		sci-electronics/kicad
+		)"
 
 LICENSE="MIT"
 SLOT="0"
