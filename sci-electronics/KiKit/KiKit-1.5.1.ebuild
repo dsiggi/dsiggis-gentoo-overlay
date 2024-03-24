@@ -22,7 +22,6 @@ RDEPEND="(
 		sci-libs/solidpython2-legacy
 		!sci-libs/solidpython
 		>=dev-python/commentjson-0.9
-		media-gfx/openscad
 		sci-electronics/kicad
 		)"
 
