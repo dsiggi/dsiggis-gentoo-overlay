@@ -43,6 +43,7 @@ pkg_setup() {
 
 src_prepare() {
 	eapply_user
+	cp ${FILESDIR}/*.c ${S}/
 }
 
 src_configure() {
