@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9,10,11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit distutils-r1 pypi
 
 DESCRIPTION="Wraps the portalocker recipe for easy usage"

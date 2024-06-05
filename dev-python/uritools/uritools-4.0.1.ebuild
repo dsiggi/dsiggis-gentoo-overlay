@@ -3,9 +3,9 @@
 # $Id$
 
 EAPI=7
-PYTHON_COMPAT=(python3_{9,10,11})
+PYTHON_COMPAT=(python3_{10..12})
 
-inherit eutils distutils-r1
+inherit distutils-r1
 
 DESCRIPTION="URI parsing, classification and composition"
 HOMEPAGE="https://github.com/tkem/uritools/"
