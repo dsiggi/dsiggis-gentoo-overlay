@@ -3,19 +3,23 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_11 )
+PYTHON_COMPAT=( python3_{11..12} )
 DISTUTILS_USE_PEP517="setuptools"
 inherit distutils-r1 pypi
 
 DESCRIPTION="Library that allows you to support both, KiCAD 5 and KiCAD 6 in your plugins"
 HOMEPAGE="https://github.com/yaqwsx/pcbnewTransition"
-SRC_URI="$(pypi_sdist_url --no-normalize "${PN}" "${PV}")"
+SRC_URI="$(pypi_sdist_url --no-normalize "${PN}" "${PV}")
+         https://raw.githubusercontent.com/yaqwsx/pcbnewTransition/main/versioneer.py"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 LICENSE="MIT"
 SLOT="0"
 
-DEPEND="$(python_gen_cond_dep 'dev-python/versioneer[${PYTHON_USEDEP}]')"
-
 S=${WORKDIR}/${P}
+
+python_prepare_all() {
+    cp ${DISTDIR}/versioneer.py ${S}/versioneer.py || die
+    distutils-r1_python_prepare_all
+}
