@@ -50,6 +50,11 @@ DEPEND="$(python_gen_cond_dep '>=dev-python/PyQt5-5.12.1[${PYTHON_USEDEP},prints
 
 S=${WORKDIR}/${PN}_beta_${PV}_sources
 
+src_prepare() {
+	eapply ${FILESDIR}/FileFinder.patch
+	eapply_user
+}
+
 src_compile() {
 	# Patchen einiger Dateien
 	sed -i "s/import collections/import collections.abc as collections/" ${S}/appCommon/Common.py || die

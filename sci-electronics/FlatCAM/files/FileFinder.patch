@@ -1,0 +1,19 @@
+--- a/tclCommands/__init__.py	2024-07-01 20:59:59.572599214 +0200
++++ b/tclCommands/__init__.py	2024-07-01 21:00:38.982941893 +0200
+@@ -1,5 +1,6 @@
+ import pkgutil
+ import sys
++import importlib.util
+ 
+ # allowed command modules (please append them alphabetically ordered)
+ import tclCommands.TclCommandAddCircle
+@@ -72,7 +73,8 @@
+ __all__ = []
+ 
+ for loader, name, is_pkg in pkgutil.walk_packages(__path__):
+-    module = loader.find_module(name).load_module(name)
++    spec = importlib.util.spec_from_file_location(name, __path__[0] + name + ".py")
++    module = importlib.util.module_from_spec(spec)
+     __all__.append(name)
+ 
+ 
