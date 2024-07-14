@@ -24,7 +24,7 @@ DEPEND="$(python_gen_cond_dep '>=dev-python/PyQt5-5.12.1[${PYTHON_USEDEP},prints
 	$(python_gen_cond_dep '>=dev-python/kiwisolver-1.1[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/six[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/dill[${PYTHON_USEDEP}]')
-	$(python_gen_cond_dep 'sci-libs/rtree[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/rtree[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/pyopengl[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '=dev-python/vispy-0.9.0[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/or-tools-python[${PYTHON_USEDEP}]')
