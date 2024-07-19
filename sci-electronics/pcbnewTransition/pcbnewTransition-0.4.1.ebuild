@@ -5,6 +5,7 @@
 EAPI=8
 PYTHON_COMPAT=( python3_{11..12} )
 DISTUTILS_USE_PEP517="setuptools"
+DISTUTILS_SINGLE_IMPL=1
 inherit distutils-r1 pypi
 
 DESCRIPTION="Library that allows you to support both, KiCAD 5 and KiCAD 6 in your plugins"
