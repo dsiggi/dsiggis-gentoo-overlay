@@ -9,23 +9,30 @@ inherit distutils-r1 pypi
 
 DESCRIPTION="Automation for KiCAD boards"
 HOMEPAGE="https://github.com/yaqwsx/KiKit"
-SRC_URI="$(pypi_sdist_url --no-normalize "${PN}" "${PV}")"
+SRC_URI="$(pypi_sdist_url --no-normalize "${PN}" "${PV}")
+		https://raw.githubusercontent.com/yaqwsx/pcbnewTransition/main/versioneer.py -> versioneer-KiKit.py"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="(
-		>=sci-electronics/pcbnewTransition-0.3.4-r1
-		>=dev-python/shapely-1.7
-		>=dev-python/click-7.1
-		>=dev-python/markdown2-2.4
-		>=dev-python/pybars3-0.9
-		sci-libs/solidpython2-legacy
+		>=sci-electronics/pcbnewTransition-0.3.4-r1[${PYTHON_SINGLE_USEDEP}]
+		$(python_gen_cond_dep '>=dev-python/shapely-1.7[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep 'dev-python/click[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep 'dev-python/markdown2[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep 'dev-python/pybars3[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep 'sci-libs/solidpython2-legacy[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep '>=dev-python/commentjson-0.9[${PYTHON_USEDEP}]')
+		sci-electronics/kicad[${PYTHON_SINGLE_USEDEP}]
 		!sci-libs/solidpython
-		>=dev-python/commentjson-0.9
-		sci-electronics/kicad
 		)"
 
 LICENSE="MIT"
 SLOT="0"
 
 S=${WORKDIR}/${P}
+
+python_prepare_all() {
+    cp ${DISTDIR}/versioneer-KiKit.py ${S}/versioneer.py || die
+    distutils-r1_python_prepare_all
+}
+
