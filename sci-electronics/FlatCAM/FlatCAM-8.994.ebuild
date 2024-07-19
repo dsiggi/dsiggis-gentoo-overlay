@@ -17,7 +17,7 @@ LICENSE="GPLv2"
 SLOT="0"
 
 DEPEND="$(python_gen_cond_dep '>=dev-python/PyQt5-5.12.1[${PYTHON_USEDEP},printsupport]')
-	$(python_gen_cond_dep '>=dev-python/numpy-1.16[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep '<dev-python/numpy-2[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/matplotlib-3.1[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/cycler-0.10[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep '>=dev-python/python-dateutil-2.1[${PYTHON_USEDEP}]')
