@@ -98,6 +98,7 @@ RDEPEND="
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/pycurl[${PYTHON_USEDEP}]
 	')
+	media-gfx/imagemagick
 "
 #net-libs/webkit-gtk:4
 
