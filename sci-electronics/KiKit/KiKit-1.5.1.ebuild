@@ -22,6 +22,7 @@ RDEPEND="(
 		$(python_gen_cond_dep 'dev-python/pybars3[${PYTHON_USEDEP}]')
 		$(python_gen_cond_dep 'sci-libs/solidpython2-legacy[${PYTHON_USEDEP}]')
 		$(python_gen_cond_dep '>=dev-python/commentjson-0.9[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep '<dev-python/numpy-2[${PYTHON_USEDEP}]')
 		sci-electronics/kicad[${PYTHON_SINGLE_USEDEP}]
 		!sci-libs/solidpython
 		)"
