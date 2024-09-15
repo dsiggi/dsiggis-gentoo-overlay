@@ -1,0 +1,40 @@
+--- a/configure.ac	2024-09-15 10:04:13.140693203 +0200
++++ b/configure.ac	2024-09-15 10:04:36.177612417 +0200
+@@ -67,37 +67,6 @@
+   [AC_DEFINE(HAVE_RSVG_HANDLE_GET_INTRINSIC_SIZE_IN_PIXELS,1,[Define to 1 if your librsvg has rsvg_handle_get_intrinsic_size_in_pixels().])],
+   [:])
+ 
+-# Optional GEOS, as a faster and more reliable replacement for Boost geometry.
+-GEOS_INIT([3.8.1])
+-
+-AS_IF([test "x$HAVE_GEOS" = "xyes"],
+-      [AC_MSG_NOTICE([Found geos, is it geos++?])],
+-      [AC_MSG_NOTICE([Didn't find geos.])])
+-
+-AC_LANG_CPLUSPLUS
+-if test "x$HAVE_GEOS" = "xyes"
+-then
+-  saved_ldflags="${LDFLAGS}"
+-  saved_cppflags="${CPPFLAGS}"
+-  LDFLAGS="${LDFLAGS} ${GEOS_CC_LIBS}"
+-  CPPFLAGS="${CPPFLAGS} ${GEOS_CFLAGS}"
+-  AC_LINK_IFELSE(
+-    [AC_LANG_PROGRAM([#include <geos/geom/Geometry.h>], [geos::geom::geosversion])],
+-    [HAVE_GEOS="yes"],
+-    [HAVE_GEOS="no"] [GEOS_CC_LIBS=""] [GEOS_CFLAGS=""])
+-  LDFLAGS="${saved_ldflags}"
+-  CPPFLAGS="${saved_cppflags}"
+-fi
+-
+-AS_IF([test "x$HAVE_GEOS" = "xyes"],
+-      [AC_MSG_NOTICE([Found geos++, we'll use it instead of some of the boost geometry for greater accuracy and speed.])],
+-      [AC_MSG_NOTICE([Didn't find geos++, we'll use boost geometry for all geometry functions.  If you see inaccuracies or you want faster run times, try geos.])])
+-AS_IF([test "x$HAVE_GEOS" = "xyes"],
+-      [AC_SUBST(GEOS_EXTRA, ["-DUSE_UNSTABLE_GEOS_CPP_API -DGEOS_VERSION=\\\"\$(GEOS_VERSION)\\\""])])
+-AS_IF([test "x$HAVE_GEOS" = "xyes"],
+-      [AC_SUBST(GEOS_CFLAGS_SYSTEM, ['$(subst -I,-I,$(GEOS_CFLAGS))'])])
+-
+-
+ AC_SUBST([gdkmm_CFLAGS_SYSTEM], ['$(subst -I,-I,$(gdkmm_CFLAGS))'])
+ 
+ AC_SUBST(gerbv_LIBS)
