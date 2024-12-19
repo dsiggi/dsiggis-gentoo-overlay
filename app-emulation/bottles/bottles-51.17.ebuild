@@ -107,6 +107,7 @@ pkg_setup() {
 }
 
 src_prepare() {
+	eapply -p0 ${FILESDIR}/meson.build.patch
 	eapply_user
 
 	if [[ "${PV}" == *9999* ]]; then
