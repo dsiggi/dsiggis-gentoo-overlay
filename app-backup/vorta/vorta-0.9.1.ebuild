@@ -18,7 +18,7 @@ SLOT="0"
 
 DEPEND="$(python_gen_cond_dep 'app-backup/borgbackup[${PYTHON_USEDEP}]')
 		$(python_gen_cond_dep 'dev-python/platformdirs[${PYTHON_USEDEP}]')
-		$(python_gen_cond_dep 'dev-python/PyQt6[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep 'dev-python/pyqt6[${PYTHON_USEDEP}]')
 		$(python_gen_cond_dep 'dev-python/peewee[${PYTHON_USEDEP}]')
 		$(python_gen_cond_dep 'dev-python/psutil[${PYTHON_USEDEP}]')
 		$(python_gen_cond_dep 'dev-python/secretstorage[${PYTHON_USEDEP}]')
