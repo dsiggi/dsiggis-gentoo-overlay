@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Foundation
+# Copyright 1999-2025 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 

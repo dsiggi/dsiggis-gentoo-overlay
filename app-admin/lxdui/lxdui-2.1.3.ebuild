@@ -1,7 +1,7 @@
-# Copyright 2020-2022 LiGurOs Authors
+# Copyright 2020-2025 LiGurOs Authors
 # Distributed under the terms of the GNU General Public License v2
 EAPI=7
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1
 
