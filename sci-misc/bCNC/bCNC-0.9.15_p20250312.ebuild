@@ -3,6 +3,7 @@
 
 EAPI=8
 PYTHON_COMPAT=( python3_{10..13} )
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_REQ_USE="tk"
 DISTUTILS_SINGLE_IMPL=1
 COMMIT="21168969f0b86582f106ccd581e4b61fee3d51c7"
@@ -28,8 +29,9 @@ DEPEND="$(python_gen_cond_dep 'dev-python/pyserial[${PYTHON_USEDEP}]')
 
 S=${WORKDIR}/${PN}-${COMMIT}
 
-python_prepare() {
-	rm -rf tests/
+python_compile() {
+	distutils-r1_python_compile
+	rm -rf ${BUILD_DIR}/install/usr/lib/python*.*/site-packages/tests
 }
 
 python_install_all() {

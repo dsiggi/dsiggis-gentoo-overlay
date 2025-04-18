@@ -3,15 +3,16 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{10..13} )
+DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 MY_PN="XStatic-term.js"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="term.js javascript library packaged for setuptools (easy_install)/pip"
 HOMEPAGE="https://pypi.org/project/XStatic-term.js"
-SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="$(pypi_sdist_url --no-normalize "${MY_PN}" "${PV^}")"
 
 LICENSE="MIT"
 SLOT="0"

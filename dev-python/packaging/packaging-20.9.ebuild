@@ -5,6 +5,8 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{10..13} pypy3  )
+DISTUTILS_USE_PEP517=setuptools
+
 inherit distutils-r1
 
 DESCRIPTION="Core utilities for Python packages"

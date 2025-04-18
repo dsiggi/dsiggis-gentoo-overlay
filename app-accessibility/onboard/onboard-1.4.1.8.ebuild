@@ -4,6 +4,8 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{10..13} )
+DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_EXT=1
 
 inherit distutils-r1 gnome2-utils
 
@@ -37,7 +39,8 @@ COMMON_DEPEND="app-text/hunspell:=
 	x11-libs/libwnck:3
 	x11-libs/pango"
 DEPEND="${COMMON_DEPEND}
-	dev-util/intltool"
+	dev-util/intltool
+	dev-python/python-distutils-extra"
 RDEPEND="${COMMON_DEPEND}
 	app-accessibility/at-spi2-core
 	app-text/iso-codes

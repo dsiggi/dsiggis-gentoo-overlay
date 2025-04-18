@@ -3,6 +3,7 @@
 
 EAPI=8
 PYTHON_COMPAT=( python3_{8..13} )
+DISTUTILS_USE_PEP517=setuptools
 VALA_MIN_API_VERSION="0.52"
 inherit gnome.org meson python-any-r1 vala virtualx
 

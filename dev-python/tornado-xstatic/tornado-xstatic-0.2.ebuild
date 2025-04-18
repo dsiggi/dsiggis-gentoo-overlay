@@ -3,6 +3,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{10..13} )
+DISTUTILS_USE_PEP517=setuptools
 
 inherit python-r1
 COMMIT_ID="d9499b57c1291764debcc2be299c12d7b3dce7d3"

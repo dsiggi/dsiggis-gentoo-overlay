@@ -3,22 +3,25 @@
 
 EAPI=7
 PYTHON_COMPAT=( python3_{10..13} )
+DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1 xdg-utils
+inherit distutils-r1 xdg-utils pypi
 
 DESCRIPTION="A simple GUI designer for the python tkinter module"
 HOMEPAGE="https://github.com/alejandroautalan/pygubu-designer"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="$(pypi_sdist_url --no-normalize "${PN}" "${PV^}")"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 LICENSE="GPL-3"
 SLOT="0"
 
+S=${WORKDIR}/${P}
+
 RDEPEND="$(python_gen_cond_dep 'dev-python/appdirs[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/mako[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/pygubu[${PYTHON_USEDEP}]')"
-	
+
 python_install_all() {
 	default
 	newicon -s 256 "${WORKDIR}"/${P}/pygubudesigner/images/pygubuLogo/pyGubu_newLogo.svg ${PN}.svg

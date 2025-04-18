@@ -14,7 +14,7 @@ SRC_URI="$(pypi_sdist_url --no-normalize "${PN}" "${PV}")"
 KEYWORDS="~amd64 ~x86 ~arm"
 IUSE=""
 
-DEPEND="dev-python/protobuf-python[${PYTHON_USEDEP}]"
+DEPEND="dev-python/protobuf[${PYTHON_USEDEP}]"
 
 LICENSE="Apache-2.0"
 SLOT="0"

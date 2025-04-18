@@ -4,11 +4,13 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{10..13} )
-inherit distutils-r1
+DISTUTILS_USE_PEP517=setuptools
+
+inherit distutils-r1 pypi
 
 DESCRIPTION="Python library to build pretty command line user prompts"
 HOMEPAGE="https://github.com/tmbo/questionary"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="$(pypi_sdist_url "${PN^}" "${PV^}")"
 
 LICENSE="MIT"
 SLOT="0"

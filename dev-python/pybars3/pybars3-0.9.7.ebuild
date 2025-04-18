@@ -3,12 +3,13 @@
 
 EAPI=8
 PYTHON_COMPAT=( python3_{10..13} )
+DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Handlebars.js templating for Python 3 and 2"
 HOMEPAGE="https://github.com/wbond/pybars3"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="$(pypi_sdist_url "${PN^}" "${PV^}")"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
