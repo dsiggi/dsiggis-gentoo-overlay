@@ -43,4 +43,6 @@ src_install() {
 	linux_domodule i915.ko
 	linux_domodule kvmgt.ko
 	modules_post_process # strip->sign->compress
+
+	rm ${D}/usr/lib/dracut/dracut.conf.d/10-i915-sriov-dkms.conf 
 }
