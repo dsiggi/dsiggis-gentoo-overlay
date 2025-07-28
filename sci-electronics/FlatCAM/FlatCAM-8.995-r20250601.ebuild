@@ -18,7 +18,7 @@ IUSE=""
 LICENSE="GPLv2"
 SLOT="0"
 
-DEPEND="$(python_gen_cond_dep '>=dev-python/numpy-1.16[${PYTHON_USEDEP}]')
+RDEPEND="$(python_gen_cond_dep '>=dev-python/numpy-1.16[${PYTHON_USEDEP}]')
 		$(python_gen_cond_dep '>=dev-python/cycler-0.10[${PYTHON_USEDEP}]')
 		$(python_gen_cond_dep '>=dev-python/python-dateutil-2.1[${PYTHON_USEDEP}]')
 		$(python_gen_cond_dep '>=dev-python/kiwisolver-1.1[${PYTHON_USEDEP}]')
@@ -44,7 +44,8 @@ DEPEND="$(python_gen_cond_dep '>=dev-python/numpy-1.16[${PYTHON_USEDEP}]')
 		$(python_gen_cond_dep 'dev-python/darkdetect[${PYTHON_USEDEP}]')
 		$(python_gen_cond_dep '>=sci-libs/gdal-3.11[${PYTHON_SINGLE_USEDEP}]')
 		$(python_gen_cond_dep 'dev-python/rasterio[${PYTHON_SINGLE_USEDEP}]')
-		$(python_gen_cond_dep 'dev-python/hsluv[${PYTHON_SINGLE_USEDEP}]')
+		$(python_gen_cond_dep 'dev-python/hsluv[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep 'dev-python/typing-extensions[${PYTHON_USEDEP}]')
 "
 
 S=${WORKDIR}/marius_stanciu-flatcam_beta-${COMMIT::12}
