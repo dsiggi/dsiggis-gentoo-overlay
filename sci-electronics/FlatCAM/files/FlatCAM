@@ -1,3 +1,9 @@
 #!/bin/bash
 
-/usr/bin/python3 /opt/FlatCAM/FlatCAM.py
+BIN=/opt/FlatCAM/FlatCAM.py
+
+if [ -f /opt/FlatCAM/flatcam.py ]; then
+    BIN=/opt/FlatCAM/flatcam.py
+fi
+
+/usr/bin/python3 $BIN
