@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Paperspace
-Comment=Your computer in the cloud
-GenericName=Paperspace
-Exec=/opt/paperspace/Paperspace.sh
-Icon=/usr/share/pixmaps/paperspace.png
-Type=Application
-Categories=GNOME;GTK;Network;
-

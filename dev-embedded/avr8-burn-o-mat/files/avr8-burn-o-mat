@@ -1,3 +1,0 @@
-#!/bin/bash
-cd /usr/share/avr8-burn-o-mat/
-java -jar ./AVR8_Burn_O_Mat.jar
