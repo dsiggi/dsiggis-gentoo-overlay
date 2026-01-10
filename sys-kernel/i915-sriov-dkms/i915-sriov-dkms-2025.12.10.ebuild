@@ -27,6 +27,10 @@ pkg_pretend() {
 		eerror "the i915 driver needs to be a module!"
 		die
 	fi
+	if ! linux_chkconfig_module DRM_XE; then
+		eerror "the XE driver needs to be a module!"
+		die
+	fi
 }
 
 
@@ -41,9 +45,16 @@ src_compile() {
 }
 
 src_install() {
+	linux_moduleinto compat
+	linux_domodule compat/intel_sriov_compat.ko
+
 	linux_moduleinto kernel/drivers/gpu/drm/i915
 	linux_domodule drivers/gpu/drm/i915/i915.ko
 	linux_domodule drivers/gpu/drm/i915/kvmgt.ko
+
+	linux_moduleinto kernel/drivers/gpu/drm/xe
+	linux_domodule drivers/gpu/drm/xe/xe.ko
+
 	modules_post_process # strip->sign->compress
 
 	rm ${D}/usr/lib/dracut/dracut.conf.d/10-i915-sriov-dkms.conf 
